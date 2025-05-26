@@ -1,19 +1,15 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import labImage from "../assets/vior-img-1.jpg";
-import biotechImage from "../assets/vior-img-3.jpg";
-import productImage from "../assets/vior-img-2.jpg";
 import sustainabilityImage from "../assets/vior-img-4.jpg";
 import contactImage from "../assets/vior-img-5.jpg";
 import image6 from "../assets/vior-img-6.jpg";
 import image7 from "../assets/vior-img-7.jpg";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
-import { Autoplay } from "swiper/modules";
 
 const sections = [
   {

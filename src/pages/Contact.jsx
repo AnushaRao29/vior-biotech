@@ -1,5 +1,5 @@
 // src/pages/Contact.jsx
-import React, { useState } from "react";
+import  { useState } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
