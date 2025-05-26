@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white text-center p-4 mt-16">
-      <p>© {new Date().getFullYear()} VIOR Biotech. All rights reserved.</p>
+      <p>© May 2023 VIOR BIOTECH EQUIPMENT PRIVATE LIMITED. All rights reserved.</p>
     </footer>
   );
 };

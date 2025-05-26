@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // Install lucide-react or replace with other icons
-
+import viorLogo from "../../src/assets/vior-logo.png";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,10 +15,23 @@ const Header = () => {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link to="/" className="font-heading text-xl md:text-2xl font-bold text-primary tracking-tight">
-          VIOR Biotech
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center space-x-2">
+           
+            <div className="flex flex-col leading-tight">
+              <span className="text-green-700 font-bold text-lg sm:text-xl">
+                 <img
+              src={viorLogo}
+              alt="vior-logo"
+              className="h-10 w-auto object-contain"
+            />
+              </span>
+              <span className="italic text-green-700 text-xs sm:text-sm tracking-wide">
+                Turning vision into Value
+              </span>
+            </div>
+          </Link>
+        </div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-4 text-sm md:text-base font-medium text-gray-700">
