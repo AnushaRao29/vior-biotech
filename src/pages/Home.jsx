@@ -66,8 +66,8 @@ const Home = () => {
   return (
     <div className="flex min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-100">
       {/* Sidebar Menu */}
-      <aside className="w-48 bg-white shadow-lg p-6 space-y-4 sticky top-0 h-screen">
-        <ul className="space-y-2">
+     <aside className="hidden md:block w-48 bg-white shadow-lg p-6 space-y-4 sticky top-0 h-screen">
+  <ul className="space-y-2">
           {menuItems.map((item, index) => (
             <li key={index}>
               <button
