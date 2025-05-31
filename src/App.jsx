@@ -1,34 +1,37 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
-
-import Home from "./pages/Home";
+import Footer from "./components/Footer"; // 👈 Add this
+import Mission from "./pages/about/Mission";
+import Leadership from "./pages/about/Leadership";
+import Services from "./pages/Services";
 import About from "./pages/About";
-import RandD from "./pages/RandD";
-import Products from "./pages/Products";
+import Departments from "./pages/Departments";
 import Contact from "./pages/Contact";
-// Add other pages as needed
+import Home from "./pages/Home";
+import BioReactors from "./pages/products/BioReactors";
+import Fermenters from "./pages/products/Fermenters";
+import CIPStation from "./pages/products/CIPStation";
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/rnd" element={<RandD />} />         
-            <Route path="/products" element={<Products />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* Add more routes here */}
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/about/mission" element={<Mission />} />
+        <Route path="/about/leadership" element={<Leadership />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/departments" element={<Departments />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/products/bioreactors" element={<BioReactors />} />
+        <Route path="/products/fermenters" element={<Fermenters />} />
+        <Route path="/products/cip-station" element={<CIPStation />} />
+      </Routes>
+      <Footer />
     </Router>
   );
-}
+};
 
 export default App;

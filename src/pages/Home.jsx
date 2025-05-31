@@ -1,4 +1,5 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -7,9 +8,6 @@ import sustainabilityImage from "../assets/vior-img-4.jpg";
 import contactImage from "../assets/vior-img-5.jpg";
 import image6 from "../assets/vior-img-6.jpg";
 import image7 from "../assets/vior-img-7.jpg";
-
-import "swiper/css";
-import "swiper/css/autoplay";
 
 const sections = [
   {
@@ -44,7 +42,19 @@ const sections = [
   },
 ];
 
+const menuItems = [
+  { label: "Bioreactors", path: "/products/bioreactors" },
+  { label: "Fermenters", path: "/products/fermenters" },
+  { label: "CIP Station", path: "/products/cip-station" },
+  { label: "Media vessels", path: "/products/media-vessels" },
+  { label: "TFF Systems", path: "/products/tff-systems" },
+  { label: "Mobile Vessels", path: "/products/mobile-vessels" },
+  { label: "Fixed Vessels", path: "/products/fixed-vessels" },
+];
+
 const Home = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -54,64 +64,60 @@ const Home = () => {
   };
 
   return (
-    <div className="space-y-24 pt-12 bg-gradient-to-b from-blue-50 via-white to-blue-100 bg-fixed">
-      {/* <Swiper
-  modules={[Autoplay]}
-  autoplay={{ delay: 3000 }}
-  loop={true}
-  className="w-full h-[400px] md:h-[500px]"
->
-  {[labImage, biotechImage, productImage].map((img, i) => (
-    <SwiperSlide key={i}>
-      <div
-        className="w-full h-full bg-cover bg-center flex items-center justify-center text-white"
-        style={{ backgroundImage: `url(${img})` }}
-      >
-        <div className="bg-black bg-opacity-40 p-8 rounded-xl text-center max-w-2xl">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            {sections[i].title}
-          </h2>
-          <p className="text-lg md:text-xl">{sections[i].description}</p>
-        </div>
-      </div>
-    </SwiperSlide>
-  ))}
-</Swiper> */}
+    <div className="flex min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-100">
+      {/* Sidebar Menu */}
+      <aside className="w-48 bg-white shadow-lg p-6 space-y-4 sticky top-0 h-screen">
+        <ul className="space-y-2">
+          {menuItems.map((item, index) => (
+            <li key={index}>
+              <button
+                onClick={() => navigate(item.path)}
+                className="w-full text-left px-3 py-1 rounded hover:bg-blue-100 text-gray-800 font-medium"
+              >
+                {item.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </aside>
 
-      {sections.map((section, index) => (
-        <section
-          key={index}
-          className={`flex flex-col-reverse md:flex-row ${
-            index % 2 !== 0 ? "md:flex-row-reverse" : ""
-          } items-center max-w-6xl mx-auto px-4 md:px-8 gap-10`}
-          data-aos="fade-up"
+      {/* Main Content */}
+      <main className="flex-1 space-y-24 pt-12 px-6 md:px-12">
+        {sections.map((section, index) => (
+          <section
+            key={index}
+            className={`flex flex-col-reverse md:flex-row ${
+              index % 2 !== 0 ? "md:flex-row-reverse" : ""
+            } items-center max-w-6xl mx-auto gap-10`}
+            data-aos="fade-up"
+          >
+            <div className="md:w-1/2 text-center md:text-left">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-dark mb-4">
+                {section.title}
+              </h2>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                {section.description}
+              </p>
+            </div>
+            <div className="md:w-1/2">
+              <img
+                src={section.image}
+                alt={section.title}
+                className="w-full h-72 md:h-96 object-cover rounded-2xl shadow-xl"
+              />
+            </div>
+          </section>
+        ))}
+
+        {/* Scroll-to-top Button */}
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-primary-dark transition"
+          aria-label="Scroll to top"
         >
-          <div className="md:w-1/2 text-center md:text-left">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-dark mb-4">
-              {section.title}
-            </h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              {section.description}
-            </p>
-          </div>
-          <div className="md:w-1/2">
-            <img
-              src={section.image}
-              alt={section.title}
-              className="w-full h-72 md:h-96 object-cover rounded-2xl shadow-xl"
-            />
-          </div>
-        </section>
-      ))}
-
-      {/* Scroll-to-top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-primary text-white p-4 rounded-full shadow-lg hover:bg-primary-dark transition"
-        aria-label="Scroll to top"
-      >
-        ↑
-      </button>
+          ↑
+        </button>
+      </main>
     </div>
   );
 };

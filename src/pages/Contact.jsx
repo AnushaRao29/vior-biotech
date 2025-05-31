@@ -1,79 +1,278 @@
-// src/pages/Contact.jsx
-import  { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import bgImage from "../assets/vior-img-6.jpg";
 
 const Contact = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   const [formData, setFormData] = useState({
-    name: "", email: "", phone: "", company: "", message: ""
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    companyType: "",
+    description: "",
+    jobTitle: "",
+    country: "",
+    message: "",
+    file: null,
   });
   const [status, setStatus] = useState("");
 
-  const handleChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === "file") {
+      setFormData({ ...formData, file: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
+
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value) data.append(key, value);
+    });
+
     try {
       const res = await fetch("/api/send", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: data,
       });
-      const data = await res.json();
-      setStatus(data.success ? "Sent successfully!" : "Failed to send.");
-      if (data.success) setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+      const result = await res.json();
+      setStatus(result.success ? "Sent successfully!" : "Failed to send.");
+      if (result.success) {
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          companyType: "",
+          description: "",
+          jobTitle: "",
+          country: "",
+          message: "",
+          file: null,
+        });
+      }
     } catch {
       setStatus("Error sending message.");
     }
   };
 
   return (
-    <div className="bg-white/70 shadow-md max-w-7xl mx-auto p-8">
-      <h2 className="font-heading text-3xl font-semibold text-center mb-8 text-primary-dark">Contact Us</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Form Card */}
-        <div className="bg-card shadow-lg rounded-lg p-6">
-          <form onSubmit={handleSubmit} className="font-heading space-y-4">
-            {["name","email","phone","company"].map((field,i) => (
-              <input
-                key={i}
-                type={field === "email" ? "email" : "text"}
-                name={field}
-                placeholder={field.charAt(0).toUpperCase() + field.slice(1) + (field!=="company"?"":" Name")}
-                value={formData[field]}
-                onChange={handleChange}
-                required={field === "name" || field==="email"}
-                className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary-light"
-              />
-            ))}
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 p-2 rounded h-32 focus:outline-none focus:ring-2 focus:ring-primary-light"
-            />
-            <button
-              type="submit"
-              className="font-heading w-full bg-primary text-white py-2 rounded hover:bg-primary-dark transition"
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat px-4 py-20"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div
+        className="max-w-7xl mx-auto backdrop-blur-md bg-white/60 rounded-3xl p-8 shadow-xl"
+        data-aos="fade-up"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Form Card */}
+          <div
+            className="bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg"
+            data-aos="fade-right"
+          >
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6"
+              encType="multipart/form-data"
             >
-              Send Message
-            </button>
-            {status && <p className="font-heading mt-2 text-center text-primary-dark">{status}</p>}
-          </form>
-        </div>
+              {/* First Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  name="firstName"
+                  placeholder="First Name*"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  className="input"
+                />
+                <input
+                  name="lastName"
+                  placeholder="Last Name*"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className="input"
+                />
+              </div>
 
-        {/* Map Card */}
-        <div className="bg-card shadow-lg rounded-lg overflow-hidden">
-          <div className="h-96">
-            <iframe
-              title="VIOR Biotech Location"
-              src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d120917.09385323203!2d73.76959657098502!3d18.724070685395713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3bc2c95ba55e3a09%3A0x2cc906a4e1b826db!2sGate%20no%20627%2C%20Plot%202%2F2%2F2%2C%20Tal%2C%20Alandi%20Fata%2C%20Khed%2C%20Kurali%2C%20Maharashtra%20410501!3m2!1d18.7240887!2d73.85199829999999!5e0!3m2!1sen!2sin!4v1746133365456!5m2!1sen!2sin"
-              width="100%" height="100%"
-              style={{border:0}}
-              allowFullScreen="" loading="lazy"
-            />
+              {/* Second Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email ID*"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="input"
+                />
+                <input
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="input"
+                />
+              </div>
+
+              {/* Company Details */}
+              <input
+                name="company"
+                placeholder="Company*"
+                value={formData.company}
+                onChange={handleChange}
+                required
+                className="input"
+              />
+              <input
+                name="companyType"
+                placeholder="Type of Company*"
+                value={formData.companyType}
+                onChange={handleChange}
+                required
+                className="input"
+              />
+              <input
+                name="description"
+                placeholder="Description*"
+                value={formData.description}
+                onChange={handleChange}
+                required
+                className="input"
+              />
+              <input
+                name="jobTitle"
+                placeholder="Job Title*"
+                value={formData.jobTitle}
+                onChange={handleChange}
+                required
+                className="input"
+              />
+              <input
+                name="country"
+                placeholder="Country*"
+                value={formData.country}
+                onChange={handleChange}
+                required
+                className="input"
+              />
+
+              {/* Message */}
+              <textarea
+                name="message"
+                placeholder="Primary source where you heard about Vior*"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 p-3 rounded h-32 focus:outline-none focus:ring-2 focus:ring-primary-light"
+              />
+
+              {/* File Upload */}
+              <div>
+                <label className="block mb-1 text-sm text-gray-600">
+                  Attachments (if any):
+                </label>
+                <input
+                  type="file"
+                  name="file"
+                  onChange={handleChange}
+                  className="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-primary file:text-white hover:file:bg-primary-dark"
+                />
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="w-full bg-primary text-white py-3 rounded font-semibold hover:bg-primary-dark transition"
+              >
+                Submit
+              </button>
+
+              {status && (
+                <p className="text-center text-sm text-primary-dark mt-2">
+                  {status}
+                </p>
+              )}
+            </form>
+          </div>
+
+          {/* Map Card */}
+          {/* Map Section with Details */}
+          <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+            {/* Company Info */}
+            <div className="p-6 space-y-4 text-sm text-gray-700">
+              <div className="flex items-center space-x-4"></div>
+              <div className="space-y-2">
+                <p>
+                  <strong>Email:</strong>{" "}
+                  <a
+                    href="mailto:info@viorbiotech.com"
+                    className="text-primary hover:underline"
+                  >
+                    info@viorbiotech.com
+                  </a>
+                </p>
+                <p>
+                  <strong>Website:</strong>{" "}
+                  <a
+                    href="https://viorbiotech.com/"
+                    className="text-primary hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    https://viorbiotech.com
+                  </a>
+                </p>
+                <p>
+                  <strong>Address:</strong> Plot No. 2/2/2, Gat No 627, Tal -
+                  Khed, Kuruli, Dist-Pune, Maharashtra, India, 410501
+                </p>
+                <p>
+                  <strong>Phone:</strong>{" "}
+                  <a
+                    href="tel:+918660323478"
+                    className="text-primary hover:underline"
+                  >
+                    +918660323478
+                  </a>
+                </p>
+                <p>
+                  <strong>LinkedIn:</strong>{" "}
+                  <a
+                    href="https://www.linkedin.com/in/vior-biotech-equipment-private-limited-1357aa313/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    https://www.linkedin.com/in/vior-biotech
+                  </a>
+                </p>
+              </div>
+            </div>
+            {/* Map */}
+            <div className="h-[400px]">
+              <iframe
+                title="VIOR Biotech Location"
+                src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d120917.09385323203!2d73.76959657098502!3d18.724070685395713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3bc2c95ba55e3a09%3A0x2cc906a4e1b826db!2sGate%20no%20627%2C%20Plot%202%2F2%2F2%2C%20Tal%2C%20Alandi%20Fata%2C%20Khed%2C%20Kurali%2C%20Maharashtra%20410501!3m2!1d18.7240887!2d73.85199829999999!5e0!3m2!1sen!2sin!4v1746133365456!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </div>
