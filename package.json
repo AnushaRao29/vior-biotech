@@ -56,10 +56,10 @@
     "tailwindcss": "^3.4.17"
   },
   "lint-staged": {
-  "src/**/*.{js,jsx,ts,tsx}": [
-    "eslint --fix",
-    "prettier --write"
-  ]
-},
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
   "proxy": "http://localhost:5000"
 }

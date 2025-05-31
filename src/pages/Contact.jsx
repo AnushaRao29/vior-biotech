@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import bgImage from "../assets/vior-img-6.jpg";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import bgImage from '../assets/vior-img-6.jpg';
 
 const Contact = () => {
   useEffect(() => {
@@ -9,32 +10,32 @@ const Contact = () => {
   }, []);
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    company: "",
-    companyType: "",
-    description: "",
-    jobTitle: "",
-    country: "",
-    message: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    company: '',
+    companyType: '',
+    description: '',
+    jobTitle: '',
+    country: '',
+    message: '',
     file: null,
   });
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value, files } = e.target;
-    if (name === "file") {
+    if (name === 'file') {
       setFormData({ ...formData, file: files[0] });
     } else {
       setFormData({ ...formData, [name]: value });
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    setStatus("Sending...");
+    setStatus('Sending...');
 
     const data = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
@@ -42,29 +43,29 @@ const Contact = () => {
     });
 
     try {
-      const res = await fetch("/api/send", {
-        method: "POST",
+      const res = await fetch('/api/send', {
+        method: 'POST',
         body: data,
       });
       const result = await res.json();
-      setStatus(result.success ? "Sent successfully!" : "Failed to send.");
+      setStatus(result.success ? 'Sent successfully!' : 'Failed to send.');
       if (result.success) {
         setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          company: "",
-          companyType: "",
-          description: "",
-          jobTitle: "",
-          country: "",
-          message: "",
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          companyType: '',
+          description: '',
+          jobTitle: '',
+          country: '',
+          message: '',
           file: null,
         });
       }
     } catch {
-      setStatus("Error sending message.");
+      setStatus('Error sending message.');
     }
   };
 
@@ -216,7 +217,7 @@ const Contact = () => {
               <div className="flex items-center space-x-4"></div>
               <div className="space-y-2">
                 <p>
-                  <strong>Email:</strong>{" "}
+                  <strong>Email:</strong>{' '}
                   <a
                     href="mailto:info@viorbiotech.com"
                     className="text-primary hover:underline"
@@ -225,7 +226,7 @@ const Contact = () => {
                   </a>
                 </p>
                 <p>
-                  <strong>Website:</strong>{" "}
+                  <strong>Website:</strong>{' '}
                   <a
                     href="https://viorbiotech.com/"
                     className="text-primary hover:underline"
@@ -240,7 +241,7 @@ const Contact = () => {
                   Khed, Kuruli, Dist-Pune, Maharashtra, India, 410501
                 </p>
                 <p>
-                  <strong>Phone:</strong>{" "}
+                  <strong>Phone:</strong>{' '}
                   <a
                     href="tel:+918660323478"
                     className="text-primary hover:underline"
@@ -249,7 +250,7 @@ const Contact = () => {
                   </a>
                 </p>
                 <p>
-                  <strong>LinkedIn:</strong>{" "}
+                  <strong>LinkedIn:</strong>{' '}
                   <a
                     href="https://www.linkedin.com/in/vior-biotech-equipment-private-limited-1357aa313/"
                     target="_blank"

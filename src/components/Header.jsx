@@ -1,36 +1,37 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // Install lucide-react or replace with other icons
-import viorLogo from "../../src/assets/vior-logo.png";
-import { ChevronDown } from "lucide-react";
+import React from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react'; // Install lucide-react or replace with other icons
+import viorLogo from '../../src/assets/vior-logo.png';
+import { ChevronDown } from 'lucide-react';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navItems = [
     {
-      name: "About Us",
+      name: 'About Us',
       submenu: [
-        { name: "Overview", path: "/about" },
-        { name: "Mission & Vision", path: "/about/mission" },
-        { name: "Leadership", path: "/about/leadership" },
+        { name: 'Overview', path: '/about' },
+        { name: 'Mission & Vision', path: '/about/mission' },
+        { name: 'Leadership', path: '/about/leadership' },
       ],
     },
     {
-      name: "Products",
+      name: 'Products',
       submenu: [
-        { name: "Bioreactors", path: "/products/bioreactors" },
-        { name: "Fermenters", path: "/products/fermenters" },
-        { name: "CIP Station", path: "/products/cip-station" },
-        { name: "Media vessels", path: "/products/media-vessels" },
-        { name: "TFF Systems", path: "/products/tff-systems" },
-        { name: "Mobile Vessels", path: "/products/mobile-vessels" },
-        { name: "Fixed Vessels", path: "/products/fixed-vessels" },
+        { name: 'Bioreactors', path: '/products/bioreactors' },
+        { name: 'Fermenters', path: '/products/fermenters' },
+        { name: 'CIP Station', path: '/products/cip-station' },
+        { name: 'Media vessels', path: '/products/media-vessels' },
+        { name: 'TFF Systems', path: '/products/tff-systems' },
+        { name: 'Mobile Vessels', path: '/products/mobile-vessels' },
+        { name: 'Fixed Vessels', path: '/products/fixed-vessels' },
       ],
     },
-    { name: "Clients", path: "/clients" },
-    { name: "Departments", path: "/departments" },
-    { name: "Services", path: "/services" },
-    { name: "Contact Us", path: "/contact" },
+    { name: 'Clients', path: '/clients' },
+    { name: 'Departments', path: '/departments' },
+    { name: 'Services', path: '/services' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   return (
@@ -55,7 +56,7 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6 text-sm md:text-base font-medium text-gray-700 relative">
-          {navItems.map((item) => (
+          {navItems.map(item => (
             <div key={item.name} className="relative group">
               <div className="flex items-center gap-1 cursor-pointer px-2 py-2">
                 <Link
@@ -72,7 +73,7 @@ const Header = () => {
               {item.submenu && (
                 <div className="absolute left-0 top-full mt-1 min-w-48 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-auto">
                   <ul className="py-2">
-                    {item.submenu.map((subItem) => (
+                    {item.submenu.map(subItem => (
                       <li key={subItem.name}>
                         <Link
                           to={subItem.path}
@@ -101,7 +102,7 @@ const Header = () => {
       {/* Mobile Menu Drawer */}
       <div
         className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         } transition-transform duration-300 ease-in-out z-50`}
       >
         <div className="flex justify-between items-center p-4 border-b">
@@ -111,7 +112,7 @@ const Header = () => {
           </button>
         </div>
         <nav className="flex flex-col space-y-4 p-4 text-gray-700">
-          {navItems.map((item) => (
+          {navItems.map(item => (
             <div key={item.name}>
               <Link
                 to={item.path}
@@ -122,7 +123,7 @@ const Header = () => {
               </Link>
               {item.submenu && (
                 <div className="pl-4 mt-2 space-y-2">
-                  {item.submenu.map((subItem) => (
+                  {item.submenu.map(subItem => (
                     <Link
                       key={subItem.name}
                       to={subItem.path}

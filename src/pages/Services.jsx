@@ -1,7 +1,8 @@
-import { useEffect } from "react";
-import overview from "../assets/vior-img-5.jpg";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from 'react';
+import { useEffect } from 'react';
+import overview from '../assets/vior-img-5.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Services = () => {
   useEffect(() => {
@@ -13,9 +14,9 @@ const Services = () => {
       className="relative min-h-screen px-4 pt-24 pb-20 bg-gray-100"
       style={{
         backgroundImage: `url(${overview})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
       {/* Overlay for fading effect */}

@@ -1,7 +1,8 @@
-import { useEffect } from "react";
-import viorTeam from "../../assets/fermenter.jpg";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from 'react';
+import { useEffect } from 'react';
+import viorTeam from '../../assets/fermenter.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Fermenters = () => {
   useEffect(() => {

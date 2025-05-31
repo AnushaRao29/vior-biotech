@@ -1,52 +1,53 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-import labImage from "../assets/vior-img-1.jpg";
+import labImage from '../assets/vior-img-1.jpg';
 
-import contactImage from "../assets/vior-img-5.jpg";
-import image6 from "../assets/vior-img-6.jpg";
-import image7 from "../assets/vior-img-7.jpg";
+import contactImage from '../assets/vior-img-5.jpg';
+import image6 from '../assets/vior-img-6.jpg';
+import image7 from '../assets/vior-img-7.jpg';
 
 const sections = [
   {
-    title: "Our Mission & Vision",
+    title: 'Our Mission & Vision',
     image: contactImage,
     description:
-      "Specialize in the design, fabrication, and supply of high-quality process equipment for the Biopharma, Pharmaceutical, Food, and Chemical industries—serving clients nationwide and globally",
-    link: "/about/mission",
+      'Specialize in the design, fabrication, and supply of high-quality process equipment for the Biopharma, Pharmaceutical, Food, and Chemical industries—serving clients nationwide and globally',
+    link: '/about/mission',
   },
   {
-    title: "Our Leading Departments",
+    title: 'Our Leading Departments',
     image: image7,
-    description: "Technical and Non-technical",
-    link: "/departments",
+    description: 'Technical and Non-technical',
+    link: '/departments',
   },
   {
-    title: "Innovative Product Development",
+    title: 'Innovative Product Development',
     image: image6,
     description:
-      "From pharmaceuticals to diagnostic tools, our pipeline is built to meet the evolving needs of the healthcare industry.",
-    link: "/services",
+      'From pharmaceuticals to diagnostic tools, our pipeline is built to meet the evolving needs of the healthcare industry.',
+    link: '/services',
   },
   {
-    title: "Connect with VIOR Biotech",
+    title: 'Connect with VIOR Biotech',
     image: labImage,
     description:
-      "Get in touch with our experts for partnerships, career opportunities, and more information about our biotech initiatives.",
-    link: "/contact",
+      'Get in touch with our experts for partnerships, career opportunities, and more information about our biotech initiatives.',
+    link: '/contact',
   },
 ];
 
 const menuItems = [
-  { label: "Bioreactors", path: "/products/bioreactors" },
-  { label: "Fermenters", path: "/products/fermenters" },
-  { label: "CIP Station", path: "/products/cip-station" },
-  { label: "Media vessels", path: "/products/media-vessels" },
-  { label: "TFF Systems", path: "/products/tff-systems" },
-  { label: "Mobile Vessels", path: "/products/mobile-vessels" },
-  { label: "Fixed Vessels", path: "/products/fixed-vessels" },
+  { label: 'Bioreactors', path: '/products/bioreactors' },
+  { label: 'Fermenters', path: '/products/fermenters' },
+  { label: 'CIP Station', path: '/products/cip-station' },
+  { label: 'Media vessels', path: '/products/media-vessels' },
+  { label: 'TFF Systems', path: '/products/tff-systems' },
+  { label: 'Mobile Vessels', path: '/products/mobile-vessels' },
+  { label: 'Fixed Vessels', path: '/products/fixed-vessels' },
 ];
 
 const Home = () => {
@@ -57,7 +58,7 @@ const Home = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -84,7 +85,7 @@ const Home = () => {
           <section
             key={index}
             className={`flex flex-col-reverse md:flex-row ${
-              index % 2 !== 0 ? "md:flex-row-reverse" : ""
+              index % 2 !== 0 ? 'md:flex-row-reverse' : ''
             } items-center max-w-6xl mx-auto gap-10`}
             data-aos="fade-up"
           >
