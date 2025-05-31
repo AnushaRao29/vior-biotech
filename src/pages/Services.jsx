@@ -1,7 +1,8 @@
-import { useEffect } from "react";
-import overview from "../assets/vior-img-6.jpg";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from 'react';
+import { useEffect } from 'react';
+import overview from '../assets/vior-img-5.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Services = () => {
   useEffect(() => {
@@ -13,9 +14,9 @@ const Services = () => {
       className="relative min-h-screen px-4 pt-24 pb-20 bg-gray-100"
       style={{
         backgroundImage: `url(${overview})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
       {/* Overlay for fading effect */}
@@ -27,8 +28,8 @@ const Services = () => {
         data-aos="fade-up"
       >
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
-          Our services include Project Management from Order Procurement to
-          Final Handover as described below
+          Services include managing the project from order procurement to final
+          handover
         </h2>
         <ul className="list-disc list-inside text-gray-700 space-y-2">
           <li>
