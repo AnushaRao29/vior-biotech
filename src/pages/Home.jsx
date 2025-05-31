@@ -55,10 +55,6 @@ const Home = () => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <div className="flex min-h-screen bg-gradient-to-b bg-blue-50 via-white to-blue-100">
       {/* Sidebar Menu */}
@@ -107,15 +103,6 @@ const Home = () => {
             </div>
           </section>
         ))}
-
-        {/* Scroll-to-top Button */}
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-white  text-primary p-2 rounded-full shadow-lg transition"
-          aria-label="Scroll to top"
-        >
-          ↑
-        </button>
       </main>
     </div>
   );
