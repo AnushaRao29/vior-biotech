@@ -1,11 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
 import labImage from '../assets/vior-img-1.jpg';
-
 import contactImage from '../assets/vior-img-5.jpg';
 import image6 from '../assets/vior-img-6.jpg';
 import image7 from '../assets/vior-img-7.jpg';
@@ -90,11 +88,12 @@ const Home = () => {
             data-aos="fade-up"
           >
             <div className="md:w-1/2 text-center md:text-left">
-              <a href={section.link}>
+              <Link to={section.link}>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-dark mb-4">
                   {section.title}
                 </h2>
-              </a>
+              </Link>
+
               <p className="text-gray-700 text-lg leading-relaxed">
                 {section.description}
               </p>
