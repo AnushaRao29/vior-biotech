@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // Install lucide-react or replace with other icons
 import viorLogo from "../../src/assets/vior-logo.png";
@@ -9,15 +9,14 @@ const Header = () => {
   const navItems = [
     {
       name: "About Us",
-      path: "/about",
       submenu: [
+        { name: "Overview", path: "/about" },
         { name: "Mission & Vision", path: "/about/mission" },
         { name: "Leadership", path: "/about/leadership" },
       ],
     },
     {
       name: "Products",
-      path: "/products",
       submenu: [
         { name: "Bioreactors", path: "/products/bioreactors" },
         { name: "Fermenters", path: "/products/fermenters" },

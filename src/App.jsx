@@ -1,17 +1,17 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer"; // 👈 Add this
-import Mission from "./pages/about/Mission";
-import Leadership from "./pages/about/Leadership";
-import Services from "./pages/Services";
-import About from "./pages/About";
-import Departments from "./pages/Departments";
-import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import BioReactors from "./pages/products/BioReactors";
-import Fermenters from "./pages/products/Fermenters";
-import CIPStation from "./pages/products/CIPStation";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer'; // 👈 Add this
+import Mission from './pages/about/Mission';
+import Leadership from './pages/about/Leadership';
+import Services from './pages/Services';
+import About from './pages/About';
+import Departments from './pages/Departments';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
+import BioReactors from './pages/products/BioReactors';
+import Fermenters from './pages/products/Fermenters';
+import CIPStation from './pages/products/CIPStation';
 
 const App = () => {
   return (

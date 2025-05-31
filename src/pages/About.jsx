@@ -3,7 +3,7 @@ import overview from "../assets/vior-build-1.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Departments = () => {
+const About = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -47,4 +47,4 @@ const Departments = () => {
   );
 };
 
-export default Departments;
+export default About;

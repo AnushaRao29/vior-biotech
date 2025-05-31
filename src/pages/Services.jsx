@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import overview from "../assets/vior-img-6.jpg";
+import overview from "../assets/vior-img-5.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -27,8 +27,8 @@ const Services = () => {
         data-aos="fade-up"
       >
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
-          Our services include Project Management from Order Procurement to
-          Final Handover as described below
+          Services include managing the project from order procurement to final
+          handover
         </h2>
         <ul className="list-disc list-inside text-gray-700 space-y-2">
           <li>
