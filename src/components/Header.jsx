@@ -2,13 +2,35 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // Install lucide-react or replace with other icons
 import viorLogo from "../../src/assets/vior-logo.png";
+import { ChevronDown } from "lucide-react";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const navItems = [
-    { name: "About Us", path: "/about" },
-    { name: "R&D", path: "/rnd" },
-    { name: "Products", path: "/products" },
+    {
+      name: "About Us",
+      path: "/about",
+      submenu: [
+        { name: "Mission & Vision", path: "/about/mission" },
+        { name: "Leadership", path: "/about/leadership" },
+      ],
+    },
+    {
+      name: "Products",
+      path: "/products",
+      submenu: [
+        { name: "Bioreactors", path: "/products/bioreactors" },
+        { name: "Fermenters", path: "/products/fermenters" },
+        { name: "CIP Station", path: "/products/cip-station" },
+        { name: "Media vessels", path: "/products/media-vessels" },
+        { name: "TFF Systems", path: "/products/tff-systems" },
+        { name: "Mobile Vessels", path: "/products/mobile-vessels" },
+        { name: "Fixed Vessels", path: "/products/fixed-vessels" },
+      ],
+    },
+    { name: "Clients", path: "/clients" },
+    { name: "Departments", path: "/departments" },
+    { name: "Services", path: "/services" },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -17,14 +39,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center space-x-2">
-           
             <div className="flex flex-col leading-tight">
               <span className="text-green-700 font-bold text-lg sm:text-xl">
-                 <img
-              src={viorLogo}
-              alt="vior-logo"
-              className="h-10 w-auto object-contain"
-            />
+                <img
+                  src={viorLogo}
+                  alt="vior-logo"
+                  className="h-10 w-auto object-contain"
+                />
               </span>
               <span className="italic text-green-700 text-xs sm:text-sm tracking-wide">
                 Turning vision into Value
@@ -34,15 +55,38 @@ const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-4 text-sm md:text-base font-medium text-gray-700">
+        <nav className="hidden md:flex space-x-6 text-sm md:text-base font-medium text-gray-700 relative">
           {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className="font-heading hover:text-primary-dark transition duration-200"
-            >
-              {item.name}
-            </Link>
+            <div key={item.name} className="relative group">
+              <div className="flex items-center gap-1 cursor-pointer px-2 py-2">
+                <Link
+                  to={item.path}
+                  className="hover:text-green-700 transition duration-200 flex items-center"
+                >
+                  {item.name}
+                </Link>
+                {item.submenu && (
+                  <ChevronDown className="w-4 h-4 text-gray-500 mt-0.5" />
+                )}
+              </div>
+
+              {item.submenu && (
+                <div className="absolute left-0 top-full mt-1 min-w-48 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-auto">
+                  <ul className="py-2">
+                    {item.submenu.map((subItem) => (
+                      <li key={subItem.name}>
+                        <Link
+                          to={subItem.path}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap"
+                        >
+                          {subItem.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           ))}
         </nav>
 
@@ -62,21 +106,36 @@ const Header = () => {
         } transition-transform duration-300 ease-in-out z-50`}
       >
         <div className="flex justify-between items-center p-4 border-b">
-          <span className="font-bold text-lg">Menu</span>
+          <span className="font-bold text-lg"></span>
           <button onClick={() => setIsOpen(false)}>
             <X size={24} />
           </button>
         </div>
         <nav className="flex flex-col space-y-4 p-4 text-gray-700">
           {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className="hover:text-primary-dark"
-              onClick={() => setIsOpen(false)}
-            >
-              {item.name}
-            </Link>
+            <div key={item.name}>
+              <Link
+                to={item.path}
+                className="block font-medium hover:text-primary-dark"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </Link>
+              {item.submenu && (
+                <div className="pl-4 mt-2 space-y-2">
+                  {item.submenu.map((subItem) => (
+                    <Link
+                      key={subItem.name}
+                      to={subItem.path}
+                      className="block text-sm text-gray-600 hover:text-primary-dark"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {subItem.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
       </div>
