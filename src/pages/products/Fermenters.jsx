@@ -25,15 +25,16 @@ const Fermenters = () => {
           </div>
           {/* Text Card Overlapping */}
           <div className="w-full md:w-1/2 md:-ml-20 md:-mt-[-100px] bg-white rounded-2xl shadow-2xl p-8 z-10">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Industrial Fermenter
-            </h2>
-
+            <h2 className="text-3xl font-bold  mb-4">Fermenters</h2>
+            <p className="pb-4">
+              Fermenters serve as the backbone of the production process,
+              manufacturers to harness the power of microorganisms to produce
+              high-value bioactive compounds.
+            </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li>Minimum Space requirement</li>
               <li>Optimized Fermenter Design</li>
-
-              <li>Range: 5L – 25KL (Customized to user requirement)</li>
+              <li>Range: 5L - 25KL (Customized to user requirement)</li>
               <li>Agitator: Top Mounted / Bottom Mounted</li>
               <li>Design compliance to ASME BPE and GMP 5 Guidelines.</li>
               <li>Single and double mechanical seal</li>

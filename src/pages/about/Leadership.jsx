@@ -24,13 +24,13 @@ const Leadership = () => {
 
       {/* Text Card */}
       <div
-        className="relative z-10 max-w-2xl w-full mx-auto bg-white bg-opacity-70 rounded-2xl shadow-2xl p-8 md:p-12"
+        className="relative z-10 max-w-4xl w-full mx-auto bg-white bg-opacity-70 rounded-2xl shadow-2xl p-8 md:p-12"
         data-aos="fade-up"
       >
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">
+        <h2 className="text-3xl font-bold  mb-6">
           Founder & CEO : Mr. Raju Rupnar
         </h2>
-        <p>
+        <p className="text-lg md:text-xl lg:text-2xl mb-4">
           Mr. R. A. Rupnar, has been the Founder and Chief Executive Officer of
           VIOR Biotech Equipment Private Limited & Sparkon Engineers and has
           about 35 years’ experience in manufacturing of Pressure vessels,

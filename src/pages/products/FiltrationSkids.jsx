@@ -4,7 +4,7 @@ import viorTeam from '../../assets/bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const CIPStation = () => {
+const FiltrationSkids = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -25,21 +25,14 @@ const CIPStation = () => {
           </div>
           {/* Text Card Overlapping */}
           <div className="w-full md:w-1/2 md:-ml-20 md:-mt-[-100px] bg-white rounded-2xl shadow-2xl p-8 z-10">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              CIP Station
-            </h2>
+            <h2 className="text-3xl font-bold  mb-4">Filtration Skids</h2>
+
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li>
-                Automated CIP station can be provided with Quality Assurance
+                Filtration, Tangential Flow Filtration, Microfiltration,
+                Ultrafiltration, Dia-filtration, Reverse Osmosis.
               </li>
-              <li>
-                Consumption of water can be reduced with the designed cleaning
-                cycle.
-              </li>
-
-              <li>Space conserving design</li>
-              <li>Agitator: Top Mounted / Bottom Mounted</li>
-              <li>Skid Mounted Single / double tank system</li>
+              <li>CIP/SIP skids Integrated.</li>
               <li>Design compliance to ASME BPE and GMP 5 Guidelines.</li>
               <li>PLC control system with HMI and SCADA.</li>
             </ul>
@@ -50,4 +43,4 @@ const CIPStation = () => {
   );
 };
 
-export default CIPStation;
+export default FiltrationSkids;

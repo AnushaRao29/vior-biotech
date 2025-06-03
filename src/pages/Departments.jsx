@@ -24,7 +24,7 @@ const Departments = () => {
             className="bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg"
             data-aos="fade-right"
           >
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Technical</h2>
+            <h2 className="text-3xl font-bold  mb-4">Technical</h2>
 
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li>Bioprocess</li>
@@ -39,9 +39,7 @@ const Departments = () => {
           {/* Non-Technical */}
           <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
             <div className="p-6 space-y-4 text-sm text-gray-700">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                Non Technical
-              </h2>
+              <h2 className="text-3xl font-bold  mb-4">Non Technical</h2>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li>Human Resources</li>
                 <li>Accounts</li>
