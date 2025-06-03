@@ -21,22 +21,32 @@ const Header = () => {
       submenu: [
         { name: 'Bioreactors', path: '/products/bioreactors' },
         { name: 'Fermenters', path: '/products/fermenters' },
-        { name: 'CIP Station', path: '/products/cip-station' },
-        { name: 'Media vessels', path: '/products/media-vessels' },
-        { name: 'TFF Systems', path: '/products/tff-systems' },
-        { name: 'Mobile Vessels', path: '/products/mobile-vessels' },
-        { name: 'Fixed Vessels', path: '/products/fixed-vessels' },
+        { name: 'Vaporization Vessel', path: '/products/vaporization-vessel' },
+        { name: 'Process Vessel', path: '/products/process-vessel' },
+        { name: 'Mobile Vessel', path: '/products/mobile-vessel' },
+        { name: 'Buffer Vessel', path: '/products/buffer-vessel' },
+        { name: 'Harvest Vessel', path: '/products/harvest-vessel' },
+        { name: 'Media Vessel', path: '/products/media-vessel' },
+        { name: 'CIP/SIP Skids', path: '/products/cip-sip-skids' },
+        { name: 'Filtration Skids', path: '/products/filtration-skids' },
+        { name: 'CIP Stations', path: '/products/cip-stations' },
+        { name: 'Inactivation Vessel', path: '/products/inactivation-vessel' },
+        { name: 'Mixing Tanks', path: '/products/mixing-tanks' },
+        {
+          name: 'Automation Solutions',
+          path: '/products/automation-solutions',
+        },
       ],
     },
-    { name: 'Clients', path: '/clients' },
-    { name: 'Departments', path: '/departments' },
+    { name: 'Clientele', path: '/clients' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Services', path: '/services' },
     { name: 'Contact Us', path: '/contact' },
   ];
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-24">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center space-x-2">
             <div className="flex flex-col leading-tight">
@@ -44,11 +54,8 @@ const Header = () => {
                 <img
                   src={viorLogo}
                   alt="vior-logo"
-                  className="h-10 w-auto object-contain"
+                  className="h-16 w-auto object-contain"
                 />
-              </span>
-              <span className="italic text-green-700 text-xs sm:text-sm tracking-wide">
-                Turning vision into Value
               </span>
             </div>
           </Link>

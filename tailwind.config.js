@@ -14,8 +14,8 @@ export const theme = {
       card: theme('colors.white'),
     }),
     fontFamily: {
-      heading: ['Playfair Display', 'serif'],
-      body: ['Source Sans Pro', 'sans-serif'],
+      heading: ['Playfair Display', 'serif'], // Update
+      body: ['Source Sans Pro', 'sans-serif'], // Update
     },
   },
 };
