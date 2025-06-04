@@ -24,7 +24,7 @@ const clientele = [
   { name: 'Client 9', logo: client9 },
 ];
 
-const Clientele = () => {
+export const Clientele = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -62,5 +62,3 @@ const Clientele = () => {
     </div>
   );
 };
-
-export default Clientele;

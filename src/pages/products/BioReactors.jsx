@@ -4,7 +4,7 @@ import viorTeam from '../../assets/bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const BioReactors = () => {
+export const BioReactors = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -47,5 +47,3 @@ const BioReactors = () => {
     </>
   );
 };
-
-export default BioReactors;

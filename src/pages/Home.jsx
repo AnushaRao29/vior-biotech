@@ -81,7 +81,7 @@ const menuItems = [
   { label: 'Automation Solutions', path: '/products/automation-solutions' },
 ];
 
-const Home = () => {
+export const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
 
@@ -205,4 +205,3 @@ const Home = () => {
     </div>
   );
 };
-export default Home;

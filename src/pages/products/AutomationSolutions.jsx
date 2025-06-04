@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 {
   /*  TODO - background img  -  or white bg - fade more - text increase font size */
 }
-const AutomationSolutions = () => {
+export const AutomationSolutions = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -99,5 +99,3 @@ const AutomationSolutions = () => {
     </div>
   );
 };
-
-export default AutomationSolutions;

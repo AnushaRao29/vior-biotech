@@ -35,7 +35,7 @@ const clientele = [
   { name: 'Client 16', logo: image16 },
 ];
 
-const Gallery = () => {
+export const Gallery = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -65,5 +65,3 @@ const Gallery = () => {
     </div>
   );
 };
-
-export default Gallery;

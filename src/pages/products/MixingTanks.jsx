@@ -4,7 +4,7 @@ import viorTeam from '../../assets/bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const MixingTanks = () => {
+export const MixingTanks = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -44,5 +44,3 @@ const MixingTanks = () => {
     </>
   );
 };
-
-export default MixingTanks;

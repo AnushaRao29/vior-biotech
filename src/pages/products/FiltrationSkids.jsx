@@ -4,7 +4,7 @@ import viorTeam from '../../assets/bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const FiltrationSkids = () => {
+export const FiltrationSkids = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -42,5 +42,3 @@ const FiltrationSkids = () => {
     </>
   );
 };
-
-export default FiltrationSkids;

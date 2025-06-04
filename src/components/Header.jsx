@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react'; // Install lucide-react or replace with 
 import viorLogo from '../../src/assets/vior-logo.png';
 import { ChevronDown } from 'lucide-react';
 
-const Header = () => {
+export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navItems = [
     {
@@ -157,5 +157,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;
