@@ -11,7 +11,7 @@ const Services = () => {
 
   return (
     <div
-      className="relative min-h-screen px-4 pt-24 pb-20 bg-gray-100 bg-opacity-0"
+      className="relative min-h-screen px-4 pt-12 md:pt-24 pb-20 bg-gray-100 bg-opacity-0"
       style={{
         backgroundImage: `url(${overview})`,
         backgroundSize: 'cover',

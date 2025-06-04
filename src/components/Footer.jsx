@@ -1,23 +1,92 @@
 import React from 'react';
-import { ChevronUpIcon } from '@heroicons/react/24/solid';
+import { ChevronUpIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
+import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa';
 
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
-    <footer className="bg-gray-800 text-white text-center p-4 mt-16">
+    <footer className="text-sm mt-16 relative">
+      {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-white text-primary p-3 rounded-full shadow-lg hover:bg-light transition duration-300"
+        className="fixed bottom-6 right-6 z-50 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
         aria-label="Scroll to top"
       >
-        <ChevronUpIcon className="w-6 h-6" />
+        <ChevronUpIcon className="w-5 h-5" />
       </button>
 
-      <p>
-        © May 2023 VIOR BIOTECH EQUIPMENT PRIVATE LIMITED. All rights reserved.
-      </p>
+      {/* Main Footer */}
+      <div className="bg-gray-800 text-white max-w-8xl mx-auto px-4 py-10 border-t border-gray-700">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-base">
+          {/* Left Side: Company Info */}
+          <div className="text-left space-y-2">
+            <p className="font-semibold">
+              Vior Biotech Equipment Private Limited
+            </p>
+            <p>
+              Plot No. 2/2/2, Gat No 627, Tal - Khed, Kuruli, Dist-Pune,
+              Maharashtra, India, 410501
+            </p>
+            <p>Phone : +91 86603 23478</p>
+            <p className="text-gray-400">
+              © May 2023 VIOR BIOTECH EQUIPMENT PRIVATE LIMITED. All rights
+              reserved.
+            </p>
+          </div>
+
+          {/* Right Side: Links */}
+          <div className="text-right space-y-2 text-gray-400">
+            <p>
+              <a href="#" className="hover:underline">
+                Privacy Policy
+              </a>
+            </p>
+            <p>
+              <a href="#" className="hover:underline">
+                Terms of Use
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Social Links Bar */}
+      <div className="bg-gray-800 text-white py-4 border-t border-gray-700">
+        <div className="max-w-8xl mx-auto px-4 flex gap-8 text-white">
+          {/* Email */}
+          <a
+            href="mailto:info@viorbiotech.com"
+            aria-label="E-mail"
+            className="hover:text-yellow-400 transition"
+          >
+            <EnvelopeIcon className="w-6 h-6" />
+          </a>
+          {/* WhatsApp */}
+          <a
+            href="https://wa.me/918660323478"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="hover:text-green-400 transition"
+          >
+            <FaWhatsapp className="w-6 h-6" />
+          </a>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/vior-biotech-equipment-private-limited-1357aa313/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="hover:text-blue-400 transition"
+          >
+            <FaLinkedinIn className="w-6 h-6" />
+          </a>
+        </div>
+      </div>
     </footer>
   );
 };
