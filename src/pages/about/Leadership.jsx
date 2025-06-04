@@ -11,7 +11,7 @@ const Leadership = () => {
 
   return (
     <div
-      className="relative min-h-screen px-4 pt-24 pb-20 bg-gray-100"
+      className="relative min-h-screen px-4 pt-12 md:pt-24 pb-20 bg-gray-100"
       style={{
         backgroundImage: `url(${overview})`,
         backgroundSize: 'cover',
@@ -27,7 +27,7 @@ const Leadership = () => {
         className="relative z-10 max-w-4xl w-full mx-auto bg-white bg-opacity-70 rounded-2xl shadow-2xl p-8 md:p-12"
         data-aos="fade-up"
       >
-        <h2 className="text-3xl font-bold  mb-6">
+        <h2 className="text-3xl font-bold mb-6">
           Founder & CEO : Mr. Raju Rupnar
         </h2>
         <p className="text-lg md:text-xl lg:text-2xl mb-4">
