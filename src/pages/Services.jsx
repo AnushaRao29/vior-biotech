@@ -4,7 +4,7 @@ import overview from '../assets/vior-img-5.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const Services = () => {
+export const Services = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -82,5 +82,3 @@ const Services = () => {
     </div>
   );
 };
-
-export default Services;

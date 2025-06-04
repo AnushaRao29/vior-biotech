@@ -1,30 +1,30 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Mission from './pages/about/Mission';
-import Leadership from './pages/about/Leadership';
-import BioReactors from './pages/products/BioReactors';
-import Fermenters from './pages/products/Fermenters';
-import CIPStations from './pages/products/CIPStations';
-import VaporizationVessel from './pages/products/VaporizationVessel';
-import ProcessVessel from './pages/products/ProcessVessel';
-import MobileVessel from './pages/products/MobileVessel';
-import BufferVessel from './pages/products/BufferVessel';
-import HarvestVessel from './pages/products/HarvestVessel';
-import MediaVessel from './pages/products/MediaVessel';
-import CIPSIPSkids from './pages/products/CIPSIPSkids';
-import FiltrationSkids from './pages/products/FiltrationSkids';
-import InactivationVessel from './pages/products/InactivationVessel';
-import MixingTanks from './pages/products/MixingTanks';
-import AutomationSolutions from './pages/products/AutomationSolutions';
-import Clientele from './pages/Clientele';
-import Gallery from './pages/Gallery';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
+import {
+  Home,
+  About,
+  Mission,
+  Leadership,
+  BioReactors,
+  Fermenters,
+  CIPStations,
+  VaporizationVessel,
+  ProcessVessel,
+  MobileVessel,
+  BufferVessel,
+  HarvestVessel,
+  MediaVessel,
+  CIPSIPSkids,
+  FiltrationSkids,
+  InactivationVessel,
+  MixingTanks,
+  AutomationSolutions,
+  Clientele,
+  Gallery,
+  Services,
+  Contact,
+} from './pages';
+import { Header, Footer, ScrollToTop } from './components';
 
 const App = () => {
   return (

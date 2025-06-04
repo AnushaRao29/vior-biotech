@@ -4,7 +4,7 @@ import viorTeam from '../../assets/bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const CIPSIPSkids = () => {
+export const CIPSIPSkids = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -38,5 +38,3 @@ const CIPSIPSkids = () => {
     </>
   );
 };
-
-export default CIPSIPSkids;

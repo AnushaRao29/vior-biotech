@@ -4,7 +4,7 @@ import viorTeam from '../../assets/bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const HarvestVessel = () => {
+export const HarvestVessel = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -48,5 +48,3 @@ const HarvestVessel = () => {
     </>
   );
 };
-
-export default HarvestVessel;

@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 {
   /*  TODO - background img  -  or white bg - fade more - text increase font size */
 }
-const About = () => {
+export const About = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -48,5 +48,3 @@ const About = () => {
     </div>
   );
 };
-
-export default About;

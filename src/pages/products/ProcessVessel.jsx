@@ -4,7 +4,7 @@ import viorTeam from '../../assets/bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const ProcessVessel = () => {
+export const ProcessVessel = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -46,5 +46,3 @@ const ProcessVessel = () => {
     </>
   );
 };
-
-export default ProcessVessel;

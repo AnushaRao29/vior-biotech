@@ -4,7 +4,7 @@ import viorTeam from '../../assets/bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const MobileVessel = () => {
+export const MobileVessel = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -46,5 +46,3 @@ const MobileVessel = () => {
     </>
   );
 };
-
-export default MobileVessel;

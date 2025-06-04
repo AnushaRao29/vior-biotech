@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import bgImage from '../assets/vior-img-6.jpg';
 
-const Contact = () => {
+export const Contact = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -280,5 +280,3 @@ const Contact = () => {
     </div>
   );
 };
-
-export default Contact;

@@ -4,7 +4,7 @@ import overview from '../../assets/vior-img-6.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const Leadership = () => {
+export const Leadership = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -45,5 +45,3 @@ const Leadership = () => {
     </div>
   );
 };
-
-export default Leadership;

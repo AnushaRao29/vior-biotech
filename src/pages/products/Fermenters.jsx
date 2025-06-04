@@ -4,7 +4,7 @@ import viorTeam from '../../assets/fermenter.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const Fermenters = () => {
+export const Fermenters = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -46,5 +46,3 @@ const Fermenters = () => {
     </>
   );
 };
-
-export default Fermenters;

@@ -4,7 +4,7 @@ import viorTeam from '../../assets/vior-team.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const Mission = () => {
+export const Mission = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -53,5 +53,3 @@ const Mission = () => {
     </>
   );
 };
-
-export default Mission;
