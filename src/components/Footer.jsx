@@ -16,7 +16,7 @@ export const Footer = () => {
         className="fixed bottom-6 right-6 z-50 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
         aria-label="Scroll to top"
       >
-        <ChevronUpIcon className="w-5 h-5" />
+        <ChevronUpIcon className="w-4 h-4" />
       </button>
 
       {/* Main Footer */}
