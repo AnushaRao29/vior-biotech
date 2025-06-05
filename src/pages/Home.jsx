@@ -11,6 +11,8 @@ import image12 from '../assets/vior-img-12.jpg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { useSwipeable } from 'react-swipeable';
+// import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 const banners = [
   {
@@ -83,6 +85,7 @@ const menuItems = [
 
 export const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -96,23 +99,32 @@ export const Home = () => {
   }, []);
 
   const goToSlide = index => {
-    setCurrentSlide(index);
+    const newIndex = (index + banners.length) % banners.length;
+    setCurrentSlide(newIndex);
   };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => goToSlide(currentSlide + 1),
+    onSwipedRight: () => goToSlide(currentSlide - 1),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
   return (
     <div className="flex min-h-screen bg-gradient-to-b bg-blue-50 via-white to-blue-100">
-      {/* Sidebar */}
-      <aside className="hidden md:block w-56 bg-white shadow-lg p-4 space-y-4 sticky top-0 h-screen">
-        <ul>
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex w-60 bg-gradient-to-b from-white to-gray-50 shadow-xl px-5 py-6 flex-col sticky top-0 h-screen overflow-y-auto space-y-2 border-r border-gray-200">
+        <h2 className="text-lg font-semibold text-gray-700 mb-4">
+          Our Products
+        </h2>
+        <ul className="space-y-2">
           {menuItems.map((item, index) => (
-            <li
-              key={index}
-              className={`border-b border-gray-300 ${index === menuItems.length - 1 ? 'border-b-0' : ''}`}
-            >
+            <li key={index}>
               <button
                 onClick={() => navigate(item.path)}
-                className="w-full text-left px-3 py-2 hover:bg-blue-100 font-medium"
+                className="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-100 transition"
               >
+                {/* Optional icon can go here */}
                 {item.label}
               </button>
             </li>
@@ -120,12 +132,52 @@ export const Home = () => {
         </ul>
       </aside>
 
+      {/* Mobile Sidebar Drawer */}
+      <div
+        className={`fixed top-0 left-0 h-full w-64 z-50 transition-transform duration-300 transform bg-white shadow-2xl border-r border-gray-200 md:hidden ${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <aside className="h-full flex flex-col p-5 overflow-y-auto space-y-2">
+          <h2 className="text-lg font-semibold text-gray-700 mb-4">Menu</h2>
+          <ul className="space-y-2">
+            {menuItems.map((item, index) => (
+              <li key={index}>
+                <button
+                  onClick={() => {
+                    navigate(item.path);
+                    setIsSidebarOpen(false);
+                  }}
+                  className="w-full text-left px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-100 transition"
+                >
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </div>
+
+      {/* Toggle Button */}
+      {/* <button
+        className="fixed top-3/4 left-0 z-50 bg-white rounded-r-full shadow-md transition-transform duration-300 md:hidden"
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+      >
+        {isSidebarOpen ? (
+          <ChevronLeftIcon className="h-8 w-4 text-gray-800" />
+        ) : (
+          <ChevronRightIcon className="h-8 w-4 text-gray-800" />
+        )}
+      </button> */}
+
       {/* Main */}
       <main className="flex-1 space-y-12 pt-12">
         {/* Banner */}
         <div className="w-full flex justify-center mb-12">
           <div className="relative w-full md:w-[85%] h-[16rem] sm:h-[20rem] md:h-[24rem] lg:h-[28rem] xl:h-[32rem] 2xl:h-[36rem] rounded-2xl shadow-xl overflow-hidden">
+            {/* Slide Container with Swipe */}
             <div
+              {...handlers}
               className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
@@ -154,7 +206,7 @@ export const Home = () => {
               ))}
             </div>
 
-            {/* Buttons */}
+            {/* Dot Buttons */}
             <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
               {banners.map((_, index) => (
                 <button
