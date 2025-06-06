@@ -57,6 +57,9 @@ export const Clientele = () => {
           for our clients, helping us advance our mission and contribute to a
           greater cause.
         </p>
+        <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-10">
+          Our Clientele
+        </h2>
 
         <div className="flex flex-wrap justify-center px-4 sm:px-8 md:px-12 gap-y-4">
           {clientele.map((client, index) => (
