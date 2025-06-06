@@ -14,7 +14,7 @@ export const AutomationSolutions = () => {
 
   return (
     <div
-      className="relative min-h-screen px-4 pt-12 md:pt-24 pb-20 bg-gray-100"
+      className="relative py-20 px-4 pt-12 md:pt-24 pb-20 bg-gray-100"
       style={{
         backgroundImage: `url(${overview})`,
         backgroundSize: 'cover',
