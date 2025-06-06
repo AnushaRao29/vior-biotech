@@ -10,7 +10,7 @@ export const ProcessVessel = () => {
   }, []);
   return (
     <>
-      <div className="flex justify-center px-4 py-16 bg-gradient-to-b from-blue-50 via-white to-blue-100">
+      <div className="min-h-[calc(100vh-64px)] flex justify-center px-4 py-16 bg-gradient-to-b from-blue-50 via-white to-blue-100">
         <div
           className="relative max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-8"
           data-aos="fade-up"

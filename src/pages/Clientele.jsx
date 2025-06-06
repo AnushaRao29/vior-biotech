@@ -9,6 +9,7 @@ import client6 from '../assets/client6.jpg';
 import client7 from '../assets/client7.jpg';
 import client8 from '../assets/client8.jpg';
 import client9 from '../assets/client9.jpg';
+import overview from '../assets/vior-img-1.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -31,33 +32,45 @@ export const Clientele = () => {
 
   return (
     <div
-      className="w-full py-12 bg-gradient-to-b bg-blue-50 transition duration-300 p-6 md:p-16 mb-4"
-      data-aos="fade-up"
+      className="relative min-h-screen px-4 pt-12 md:pt-24 pb-20 bg-gray-100 bg-opacity-0"
+      style={{
+        backgroundImage: `url(${overview})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
     >
-      <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-10">
-        Our Clientele
-      </h2>
-      <p className="text-lg mb-10">
-        At VIOR, we are committed each day to delivering impactful solutions
-        that truly make a difference to our customers—leading niche
-        biopharmaceutical companies and government organizations that play a
-        vital role in the lifesaving industry. Every effort we make is driven by
-        the potential to create meaningful value for our clients, helping us
-        advance our mission and contribute to a greater cause.
-      </p>
+      {/* Overlay for fading effect */}
+      <div className="absolute inset-0 bg-black bg-opacity-40 z-0" />
 
-      <div className="flex flex-wrap justify-center px-4 sm:px-8 md:px-12 gap-y-4">
-        {clientele.map((client, index) => (
-          <div key={index} className="w-1/3 flex justify-center px-2 p-1">
-            <div className="bg-gray-50 hover:bg-gray-100 rounded-lg shadow-md flex items-center justify-center w-full max-w-[16rem] h-[8rem]">
-              <img
-                src={client.logo}
-                alt={client.name}
-                className="max-h-full max-w-full object-contain"
-              />
+      {/* Text Card */}
+      <div
+        className="relative z-10 max-w-6xl w-full mx-auto bg-white bg-opacity-70 rounded-2xl shadow-2xl p-8 md:p-12"
+        data-aos="fade-up"
+      >
+        <p className="text-lg mb-10">
+          At <strong>VIOR</strong>, we are committed each day to delivering
+          impactful solutions that truly make a difference to our
+          customers—leading niche biopharmaceutical companies and government
+          organizations that play a vital role in the lifesaving industry. Every
+          effort we make is driven by the potential to create meaningful value
+          for our clients, helping us advance our mission and contribute to a
+          greater cause.
+        </p>
+
+        <div className="flex flex-wrap justify-center px-4 sm:px-8 md:px-12 gap-y-4">
+          {clientele.map((client, index) => (
+            <div key={index} className="w-1/3 flex justify-center px-2 p-1">
+              <div className="bg-gray-50 hover:bg-gray-100 rounded-lg shadow-md flex items-center justify-center w-full max-w-[16rem] h-[8rem]">
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
