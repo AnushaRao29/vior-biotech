@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import viorTeam from '../../assets/process-vessel.jpg';
+import viorTeam from '../../assets/bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
