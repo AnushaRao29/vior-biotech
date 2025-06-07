@@ -127,7 +127,7 @@ export const Home = () => {
                   data-aos="fade-up"
                   className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col items-center justify-center text-center px-4"
                 >
-                  <h2 className=" text-white text-3xl md:text-5xl lg:text-7xl font-bold mb-4 drop-shadow-xl">
+                  <h2 className=" text-white text-3xl md:text-5xl lg:text-7xl  mb-4 drop-shadow-xl">
                     {banner.heading}
                   </h2>
                   <p
@@ -170,7 +170,7 @@ export const Home = () => {
                 data-aos="fade-up"
               >
                 <Link to={section.link}>
-                  <h2 className=" text-3xl md:text-4xl font-bold text-primary-dark mb-4">
+                  <h2 className="text-3xl md:text-4xl  text-primary-dark mb-4">
                     {section.title}
                   </h2>
                 </Link>

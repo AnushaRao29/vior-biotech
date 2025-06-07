@@ -25,7 +25,9 @@ export const CIPStations = () => {
           </div>
           {/* Text Card Overlapping */}
           <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-100px] bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
-            <h2 className="text-4xl  mb-6 drop-shadow-md">CIP Stations</h2>
+            <h2 className="text-3xl md:text-4xl mb-6 drop-shadow-md">
+              CIP Stations
+            </h2>
             <ul className="list-disc list-outside list-inside  space-y-2 text-white">
               <p className="pb-4 text-white">
                 Clean-in-Place (CIP) is a sophisticated process designed to

@@ -18,5 +18,5 @@ export { Services } from './Services';
 export { Clientele } from './Clientele';
 export { Contact } from './Contact';
 export { Gallery } from './Gallery';
-export { About } from './About';
+export { Overview } from './Overview';
 export { Home } from './Home';

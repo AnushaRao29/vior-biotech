@@ -13,7 +13,7 @@ export const SidebarDrawer = ({
     <>
       {/* Mobile Sidebar Drawer */}
       <div
-        className={`fixed top-20 left-0 h-[calc(100vh-5rem)] w-48 md:w-64 z-50 transition-transform duration-300 transform bg-white/40 backdrop-blur-md border border-gray-300 rounded-r-2xl shadow-md p-4 ${
+        className={`fixed top-20 left-0 h-[calc(100vh-5rem)] w-48 md:w-64 z-50 transition-transform duration-300 transform bg-[rgba(128,128,128,0.4)] backdrop-blur-md border border-gray-400 text-white rounded-r-2xl shadow-md p-4 ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -26,7 +26,7 @@ export const SidebarDrawer = ({
                     navigate(item.path);
                     setIsSidebarOpen(false);
                   }}
-                  className="w-full text-left px-4 py-2 rounded-xl text-base  hover:text-blue-700 hover:bg-blue-100 transition-all duration-200 shadow-sm hover:shadow-md"
+                  className="w-full text-left px-4 py-2 rounded-xl text-base text-white hover:bg-black hover:text-white hover:[text-shadow:_0_0_6px_white] focus:bg-black focus:text-white focus:[text-shadow:_0_0_8px_white] transition-all duration-300 shadow-sm"
                 >
                   {item.label}
                 </button>
@@ -41,14 +41,14 @@ export const SidebarDrawer = ({
         className="fixed top-3/4 left-0 z-50 rounded-r-full shadow-md transition-transform duration-300"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
-        <div className="bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200">
+        <div className="bg-white p-3 rounded-full shadow-lg hover:bg-gray-100 border border-gray-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 32 32"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-4 md:size-6"
+            className="size-4 md:size-6 drop-shadow"
           >
             <path
               strokeLinecap="round"

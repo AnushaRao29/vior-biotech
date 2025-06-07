@@ -25,7 +25,9 @@ export const MixingTanks = () => {
           </div>
           {/* Text Card Overlapping */}
           <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-100px] bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
-            <h2 className="text-4xl  mb-6 drop-shadow-md">Mixing Tanks</h2>
+            <h2 className="text-3xl md:text-4xl mb-6 drop-shadow-md">
+              Mixing Tanks
+            </h2>
 
             <p className="pb-4 text-white">
               Mixing Process with the efficient Temperature control.

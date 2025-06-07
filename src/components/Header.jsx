@@ -7,6 +7,7 @@ import { ChevronDown } from 'lucide-react';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,7 +78,12 @@ export const Header = () => {
           }`}
         >
           {navItems.map(item => (
-            <div key={item.name} className="relative group">
+            <div
+              key={item.name}
+              className="relative group"
+              onMouseEnter={() => setActiveSubmenu(item.name)}
+              onMouseLeave={() => setActiveSubmenu(null)}
+            >
               <div className="flex items-center gap-1 cursor-pointer px-2 py-2">
                 <Link
                   to={item.path}
@@ -92,13 +98,20 @@ export const Header = () => {
 
               {/* Submenu */}
               {item.submenu && (
-                <div className="absolute left-0 top-full mt-1 min-w-48 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-auto">
+                <div
+                  className={`absolute left-0 top-full mt-1 min-w-48 bg-white/30 backdrop-blur-md border border-gray-300 rounded-md shadow-lg z-50 pointer-events-auto transition-all duration-200 ${
+                    activeSubmenu === item.name
+                      ? 'opacity-100 visible'
+                      : 'opacity-0 invisible'
+                  }`}
+                >
                   <ul className="py-2">
                     {item.submenu.map(subItem => (
                       <li key={subItem.name}>
                         <Link
                           to={subItem.path}
-                          className="block px-4 py-2 text-sm text-black hover:bg-gray-100 whitespace-nowrap"
+                          onClick={() => setActiveSubmenu(null)}
+                          className="block px-4 py-2 text-sm text-white hover:bg-black hover:[text-shadow:_0_0_6px_white] transition-all duration-300 whitespace-nowrap rounded-md"
                         >
                           {subItem.name}
                         </Link>
@@ -122,33 +135,34 @@ export const Header = () => {
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform ${
+        className={`fixed top-0 right-0 h-full w-64 bg-[rgba(128,128,128,0.4)] backdrop-blur-md border border-gray-400 text-white rounded-l-2xl shadow-md p-4 transform ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         } transition-transform duration-300 ease-in-out z-50 overflow-y-auto`}
       >
-        <div className="flex justify-between items-center p-4 border-b">
-          <span className="font-bold text-lg"></span>
+        <div className="flex justify-end mb-4">
           <button onClick={() => setIsOpen(false)}>
-            <X size={24} />
+            <X size={24} className="text-white" />
           </button>
         </div>
-        <nav className="flex flex-col space-y-4 p-4 ">
+
+        <nav className="flex flex-col space-y-3">
           {navItems.map(item => (
             <div key={item.name}>
               <Link
                 to={item.path}
-                className="block font-medium hover:text-primary-dark"
+                className="block w-full px-4 py-2 rounded-xl text-base text-white hover:bg-black hover:text-white hover:[text-shadow:_0_0_6px_white] focus:bg-black focus:text-white focus:[text-shadow:_0_0_8px_white] transition-all duration-300 shadow-sm"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
+
               {item.submenu && (
-                <div className="pl-4 mt-2 space-y-2">
+                <div className="pl-6 mt-2 space-y-2">
                   {item.submenu.map(subItem => (
                     <Link
                       key={subItem.name}
                       to={subItem.path}
-                      className="block text-sm  hover:text-primary-dark"
+                      className="block w-full px-3 py-1.5 rounded-lg text-sm text-white hover:bg-black hover:text-white hover:[text-shadow:_0_0_6px_white] transition duration-300"
                       onClick={() => setIsOpen(false)}
                     >
                       {subItem.name}
@@ -164,7 +178,7 @@ export const Header = () => {
       {/* Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-30 z-40"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
           onClick={() => setIsOpen(false)}
         />
       )}

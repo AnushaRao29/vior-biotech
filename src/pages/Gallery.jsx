@@ -46,7 +46,7 @@ export const Gallery = () => {
         className="w-full py-6 bg-gradient-to-b bg-blue-50 transition duration-300"
         data-aos="fade-up"
       >
-        <h2 className="text-center text-2xl sm:text-3xl font-bold text-white mb-10">
+        <h2 className="text-center text-3xl md:text-4xl text-white mb-10">
           Gallery
         </h2>
 

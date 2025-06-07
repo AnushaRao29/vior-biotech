@@ -4,9 +4,6 @@ import overview from '../../assets/vior-img-9.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-{
-  /*  TODO - background img  -  or white bg - fade more - text increase font size */
-}
 export const AutomationSolutions = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -30,7 +27,7 @@ export const AutomationSolutions = () => {
         className="relative z-10 max-w-6xl w-full mx-auto bg-white bg-opacity-80 rounded-2xl shadow-2xl p-8 md:p-12"
         data-aos="fade-up"
       >
-        <h2 className="text-2xl font-bold  mb-4">
+        <h2 className="text-3xl md:text-4xl mb-4">
           Simplifying Complexity with Smart Automation
         </h2>
         <p className="text-lg mb-4">
@@ -41,7 +38,7 @@ export const AutomationSolutions = () => {
           meet the stringent demands of pharmaceutical and biopharmaceutical
           manufacturing.
         </p>
-        <h2 className="text-2xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl mb-4">
           Smarter Automation. Smoother Operations.{' '}
         </h2>
         <p className="text-lg mb-4">
@@ -57,14 +54,14 @@ export const AutomationSolutions = () => {
           <li>Consistent batch reproducibility</li>
           <li>Effortless audit compliance</li>
         </ul>
-        <h2 className="text-2xl font-bold mb-4">Why Vior Automation? </h2>
+        <h2 className="text-3xl md:text-4xl mb-4">Why Vior Automation? </h2>
         <p className="text-lg mb-4">
           Our dedicated Automation Team brings deep domain expertise and
           delivers user-friendly, regulation-ready solutions—crafted
           specifically for the rigorous environments of pharma and biopharma
           production.
         </p>
-        <h2 className="text-2xl font-bold mb-4">Our Capabilities </h2>
+        <h2 className="text-3xl md:text-4xl mb-4">Our Capabilities </h2>
         <p className="text-lg mb-4">
           We offer seamless automation and integration across:
         </p>
