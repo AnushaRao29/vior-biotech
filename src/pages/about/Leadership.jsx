@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import overview from '../../assets/vior-img-6.jpg';
+import overview from '../../assets/vior-img-14.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -11,7 +11,7 @@ export const Leadership = () => {
 
   return (
     <div
-      className="relative min-h-screen px-4 pt-12 md:pt-24 pb-20 bg-gray-100"
+      className="relative min-h-screen px-4 pt-24 pb-20 bg-gray-100"
       style={{
         backgroundImage: `url(${overview})`,
         backgroundSize: 'cover',
@@ -20,17 +20,17 @@ export const Leadership = () => {
       }}
     >
       {/* Overlay for fading effect */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 z-0" />
+      <div className="absolute inset-0 bg-black bg-opacity-70 z-0" />
 
       {/* Text Card */}
       <div
         className="relative z-10 max-w-4xl w-full mx-auto bg-white bg-opacity-70 rounded-2xl shadow-2xl p-8 md:p-12"
         data-aos="fade-up"
       >
-        <h2 className="text-3xl font-bold mb-6">
+        <h2 className=" text-3xl font-bold  mb-6">
           Founder & CEO : Mr. Raju Rupnar
         </h2>
-        <p className="text-lg md:text-xl lg:text-2xl mb-4">
+        <p className="text-lg mb-10">
           Mr. R. A. Rupnar, has been the Founder and Chief Executive Officer of
           VIOR Biotech Equipment Private Limited & Sparkon Engineers and has
           about 35 years’ experience in manufacturing of Pressure vessels,

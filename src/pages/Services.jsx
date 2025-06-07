@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import overview from '../assets/vior-img-5.jpg';
+import overview from '../assets/vior-img-14.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -11,7 +11,7 @@ export const Services = () => {
 
   return (
     <div
-      className="relative min-h-screen px-4 pt-12 md:pt-24 pb-20 bg-gray-100 bg-opacity-0"
+      className="relative min-h-screen px-4 pt-24 pb-20 bg-gray-100 bg-opacity-0"
       style={{
         backgroundImage: `url(${overview})`,
         backgroundSize: 'cover',
@@ -20,14 +20,14 @@ export const Services = () => {
       }}
     >
       {/* Overlay for fading effect */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 z-0" />
+      <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
 
       {/* Text Card */}
       <div
         className="relative z-10 max-w-6xl w-full mx-auto bg-white bg-opacity-70 rounded-2xl shadow-2xl p-8 md:p-12"
         data-aos="fade-up"
       >
-        <h2 className="text-3xl font-bold  mb-4">
+        <h2 className="text-4xl  mb-6 drop-shadow-md">
           {/*  TODO - capitals first letter */}
           Managing the Project from Order Procurement to Final Handover
         </h2>
@@ -49,10 +49,10 @@ export const Services = () => {
           performed at Client site.
         </p>
 
-        <ul className="list-disc list-inside space-y-2 mb-4">
+        <ul className="list-disc list-outside list-inside list-inside space-y-2 mb-4 pl-5">
           {/*  TODO - remove the bullet point from FAT and SAT and Handover*/}
 
-          <li className="text-lg mb-4">
+          <li className="text-lg  mb-4">
             Test Procedures will be prepared in accordance with standards as
             part of the engineering for Commissioning and Qualification. All
             test procedures will be presented for approval to the client.

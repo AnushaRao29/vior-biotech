@@ -10,13 +10,13 @@ export const Fermenters = () => {
   }, []);
   return (
     <>
-      <div className="min-h-[calc(100vh-64px)] flex justify-center px-4 py-16 bg-gradient-to-b from-blue-50 via-white to-blue-100">
+      <div className="min-h-[calc(100vh-64px)] flex justify-center px-4 py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
         <div
-          className="relative max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-8"
+          className="relative max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-10"
           data-aos="fade-up"
         >
-          {/* Image Card */}
-          <div className="w-full md:w-1/2 rounded-2xl shadow-xl overflow-hidden">
+          {/* Image Section */}
+          <div className="w-full md:w-1/2 rounded-3xl shadow-2xl overflow-hidden">
             <img
               src={viorTeam}
               alt="Vior Biotech Equipment"
@@ -24,14 +24,14 @@ export const Fermenters = () => {
             />
           </div>
           {/* Text Card Overlapping */}
-          <div className="w-full md:w-1/2 md:-ml-20 md:-mt-[-100px] bg-white rounded-2xl shadow-2xl p-8 z-10">
-            <h2 className="text-3xl font-bold  mb-4">Fermenters</h2>
-            <p className="pb-4">
+          <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-100px] bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
+            <h2 className="text-4xl  mb-6 drop-shadow-md">Fermenters</h2>
+            <p className="pb-4 text-white">
               Fermenters serve as the backbone of the production process,
               manufacturers to harness the power of microorganisms to produce
               high-value bioactive compounds.
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
+            <ul className="list-disc list-outside list-inside  space-y-2 text-white">
               <li>Minimum Space requirement</li>
               <li>Optimized Fermenter Design</li>
               <li>Range: 5L - 25KL (Customized to user requirement)</li>

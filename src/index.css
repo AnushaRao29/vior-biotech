@@ -1,9 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 🌐 Default font styles for headings and body */
+@layer base {
+  html {
+    @apply font-body font-normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold;
+  }
+}
+
+
+/* ✏️ Custom input style */
 .input {
   @apply w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-primary-light;
 }
+
+/* 🎞️ Banner scroll animation */
 @keyframes banner-scroll {
   0%,
   20% {

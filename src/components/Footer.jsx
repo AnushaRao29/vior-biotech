@@ -13,7 +13,7 @@ export const Footer = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-50 bg-white text-black p-3 rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
+        className="fixed bottom-6 right-6 z-50 bg-black font-bold text-white p-3 rounded-full shadow-lg hover:bg-gray-200 hover:text-black transition duration-300"
         aria-label="Scroll to top"
       >
         <ChevronUpIcon className="w-4 h-4" />
@@ -27,11 +27,11 @@ export const Footer = () => {
             <p className="font-semibold">{TEXTS.COMPANY_NAME}</p>
             <p>{TEXTS.COMPANY_ADDR}</p>
             <p>{TEXTS.COMPANY_PHONE}</p>
-            <p className="text-gray-400">{TEXTS.FOOTER_TEXT}</p>
+            <p className="">{TEXTS.FOOTER_TEXT}</p>
           </div>
 
           {/* Right Side: Links */}
-          <div className="text-right space-y-2 text-gray-400">
+          <div className="text-right space-y-2 ">
             <p>
               <a href="#" className="hover:underline">
                 {TEXTS.PRIVACY_POLICY}

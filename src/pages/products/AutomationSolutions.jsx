@@ -52,7 +52,7 @@ export const AutomationSolutions = () => {
           Resource Planning (ERP) systems. All from a single control station.
         </p>
         <p className="text-lg mb-4">The result?</p>
-        <ul className="list-disc list-inside space-y-2 mb-4">
+        <ul className="list-disc list-outside list-inside space-y-2 mb-4">
           <li>Efficient batch control</li>
           <li>Consistent batch reproducibility</li>
           <li>Effortless audit compliance</li>
@@ -68,7 +68,7 @@ export const AutomationSolutions = () => {
         <p className="text-lg mb-4">
           We offer seamless automation and integration across:
         </p>
-        <ul className="list-disc list-inside space-y-2 mb-4">
+        <ul className="list-disc list-outside list-inside space-y-2 mb-4">
           <li>
             Multiple Unit Operations Fermentation, Cleaning-In-Place (CIP),
             Sterilization-In-Place (SIP), chromatography, and more.

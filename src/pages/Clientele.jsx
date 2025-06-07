@@ -9,7 +9,6 @@ import client6 from '../assets/client6.jpg';
 import client7 from '../assets/client7.jpg';
 import client8 from '../assets/client8.jpg';
 import client9 from '../assets/client9.jpg';
-import overview from '../assets/vior-img-1.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -31,23 +30,14 @@ export const Clientele = () => {
   }, []);
 
   return (
-    <div
-      className="relative min-h-screen px-4 pt-12 md:pt-24 pb-20 bg-gray-100 bg-opacity-0"
-      style={{
-        backgroundImage: `url(${overview})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
-      {/* Overlay for fading effect */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 z-0" />
-
-      {/* Text Card */}
+    <div className="flex justify-center px-4 py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
       <div
-        className="relative z-10 max-w-6xl w-full mx-auto bg-white bg-opacity-70 rounded-2xl shadow-2xl p-8 md:p-12"
+        className="w-full py-6 bg-gradient-to-b bg-blue-50 transition duration-300 p-6 md:p-16 mb-4"
         data-aos="fade-up"
       >
+        <h2 className="text-center text-2xl sm:text-3xl font-bold text-white mb-10">
+          Our Clientele
+        </h2>
         <p className="text-lg mb-10">
           At <strong>VIOR</strong>, we are committed each day to delivering
           impactful solutions that truly make a difference to our
@@ -57,9 +47,6 @@ export const Clientele = () => {
           for our clients, helping us advance our mission and contribute to a
           greater cause.
         </p>
-        <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-10">
-          Our Clientele
-        </h2>
 
         <div className="flex flex-wrap justify-center px-4 sm:px-8 md:px-12 gap-y-4">
           {clientele.map((client, index) => (

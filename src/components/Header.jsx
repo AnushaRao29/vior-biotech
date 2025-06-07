@@ -1,11 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react'; // Install lucide-react or replace with other icons
+import { Menu, X } from 'lucide-react';
 import viorLogo from '../../src/assets/vior-logo.png';
 import { ChevronDown } from 'lucide-react';
 
 export const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   const navItems = [
     {
@@ -43,40 +54,43 @@ export const Header = () => {
     { name: 'Services', path: '/services' },
     { name: 'Contact Us', path: '/contact' },
   ];
-
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 md:h-24">
-        <div className="flex items-center gap-3">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="flex flex-col leading-tight">
-              <span className="text-green-700 font-bold text-lg sm:text-xl">
-                <img
-                  src={viorLogo}
-                  alt="vior-logo"
-                  className="h-12 md:h-16 w-auto object-contain"
-                />
-              </span>
-            </div>
-          </Link>
-        </div>
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      }`}
+    >
+      <div className="p-4 md:p-8 flex items-center justify-between h-20 transition-all duration-300">
+        {/* Logo */}
+        <Link to="/" className="flex items-center space-x-2">
+          <img
+            src={viorLogo}
+            alt="vior-logo"
+            className="h-12 md:h-16 w-auto object-contain"
+          />
+        </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-6 text-sm md:text-base font-medium text-gray-700 relative">
+        <nav
+          className={`hidden md:flex space-x-6 text-sm md:text-base font-medium relative transition-colors duration-300 ${
+            scrolled ? 'text-black' : 'text-white'
+          }`}
+        >
           {navItems.map(item => (
             <div key={item.name} className="relative group">
               <div className="flex items-center gap-1 cursor-pointer px-2 py-2">
                 <Link
                   to={item.path}
-                  className="hover:text-green-700 transition duration-200 flex items-center"
+                  className="transition duration-200 flex items-center"
                 >
                   {item.name}
                 </Link>
                 {item.submenu && (
-                  <ChevronDown className="w-4 h-4 text-gray-500 mt-0.5" />
+                  <ChevronDown className="w-4 h-4 text-white mt-0.5" />
                 )}
               </div>
 
+              {/* Submenu */}
               {item.submenu && (
                 <div className="absolute left-0 top-full mt-1 min-w-48 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-auto">
                   <ul className="py-2">
@@ -84,7 +98,7 @@ export const Header = () => {
                       <li key={subItem.name}>
                         <Link
                           to={subItem.path}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap"
+                          className="block px-4 py-2 text-sm text-black hover:bg-gray-100 whitespace-nowrap"
                         >
                           {subItem.name}
                         </Link>
@@ -100,9 +114,9 @@ export const Header = () => {
         {/* Hamburger Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="md:hidden text-gray-700"
+          className="md:hidden text-white"
         >
-          <Menu size={24} />
+          <Menu size={28} />
         </button>
       </div>
 
@@ -118,7 +132,7 @@ export const Header = () => {
             <X size={24} />
           </button>
         </div>
-        <nav className="flex flex-col space-y-4 p-4 text-gray-700">
+        <nav className="flex flex-col space-y-4 p-4 ">
           {navItems.map(item => (
             <div key={item.name}>
               <Link
@@ -134,7 +148,7 @@ export const Header = () => {
                     <Link
                       key={subItem.name}
                       to={subItem.path}
-                      className="block text-sm text-gray-600 hover:text-primary-dark"
+                      className="block text-sm  hover:text-primary-dark"
                       onClick={() => setIsOpen(false)}
                     >
                       {subItem.name}
