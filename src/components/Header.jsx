@@ -114,7 +114,7 @@ export const Header = () => {
         {/* Hamburger Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="md:hidden text-white"
+          className={`md:hidden ${scrolled ? 'text-black' : 'text-white'}`}
         >
           <Menu size={28} />
         </button>
