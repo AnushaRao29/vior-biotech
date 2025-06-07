@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import bgImage from '../assets/vior-img-6.jpg';
+import bgImage from '../assets/contactBackground-1.jpg';
 
 export const Contact = () => {
   useEffect(() => {
@@ -71,19 +71,13 @@ export const Contact = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat px-4 py-20"
+      className="min-h-screen bg-cover bg-center bg-no-repeat px-4 py-20 pt-24"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div
-        className="max-w-7xl mx-auto backdrop-blur-md bg-white/60 rounded-3xl p-8 shadow-xl"
-        data-aos="fade-up"
-      >
+      <div className="max-w-7xl mx-auto rounded-3xl" data-aos="fade-up">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Form Card */}
-          <div
-            className="bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg"
-            data-aos="fade-right"
-          >
+          <div className="rounded-2xl " data-aos="fade-right">
             <form
               onSubmit={handleSubmit}
               className="space-y-6"
@@ -121,9 +115,10 @@ export const Contact = () => {
                 />
                 <input
                   name="phone"
-                  placeholder="Phone Number"
+                  placeholder="Phone Number*"
                   value={formData.phone}
                   onChange={handleChange}
+                  required
                   className="input"
                 />
               </div>
@@ -182,14 +177,14 @@ export const Contact = () => {
 
               {/* File Upload */}
               <div>
-                <label className="block mb-1 text-sm text-gray-600">
+                <label className="block mb-1 text-sm text-white">
                   Attachments (if any):
                 </label>
                 <input
                   type="file"
                   name="file"
                   onChange={handleChange}
-                  className="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-primary file:text-white hover:file:bg-primary-dark"
+                  className="block w-full text-sm  file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-primary file:text-white hover:file:bg-primary-dark"
                 />
               </div>
 
@@ -211,64 +206,71 @@ export const Contact = () => {
 
           {/* Map Card */}
           {/* Map Section with Details */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
-            {/* Company Info */}
-            <div className="p-6 space-y-4 text-sm text-gray-700">
-              <div className="flex items-center space-x-4"></div>
-              <div className="space-y-2">
-                <p>
-                  <strong>Email:</strong>{' '}
-                  <a
-                    href="mailto:info@viorbiotech.com"
-                    className="text-primary hover:underline"
-                  >
-                    info@viorbiotech.com
-                  </a>
-                </p>
-                <p>
-                  <strong>Website:</strong>{' '}
-                  <a
-                    href="https://viorbiotech.com/"
-                    className="text-primary hover:underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    https://viorbiotech.com
-                  </a>
-                </p>
-                <p>
-                  <strong>Address:</strong> Plot No. 2/2/2, Gat No 627, Tal -
-                  Khed, Kuruli, Dist-Pune, Maharashtra, India, 410501
-                </p>
-                <p>
-                  <strong>Phone:</strong>{' '}
-                  <a
-                    href="tel:+918660323478"
-                    className="text-primary hover:underline"
-                  >
-                    +918660323478
-                  </a>
-                </p>
-                <p>
-                  <strong>LinkedIn:</strong>{' '}
-                  <a
-                    href="https://www.linkedin.com/in/vior-biotech-equipment-private-limited-1357aa313/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    https://www.linkedin.com/in/vior-biotech
-                  </a>
-                </p>
-              </div>
+          {/* Info + Map Column */}
+          <div className="space-y-6">
+            {/* Info Card */}
+            <div
+              className="rounded-2xl p-6 text-sm  shadow-md bg-white rounded-lg shadow-md overflow-hidden flex flex-col"
+              style={{
+                backgroundImage: `bg-white`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
+            >
+              <p>
+                <strong>Email:</strong>{' '}
+                <a
+                  href="mailto:info@viorbiotech.com"
+                  className="text-primary hover:underline"
+                >
+                  info@viorbiotech.com
+                </a>
+              </p>
+              <p>
+                <strong>Website:</strong>{' '}
+                <a
+                  href="https://viorbiotech.com/"
+                  className="text-primary hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  viorbiotech.com
+                </a>
+              </p>
+              <p>
+                <strong>Address:</strong> Plot No. 2/2/2, Gat No 627, Tal -
+                Khed, Kuruli, Dist-Pune, Maharashtra, India, 410501
+              </p>
+              <p>
+                <strong>Phone:</strong>{' '}
+                <a
+                  href="tel:+918660323478"
+                  className="text-primary hover:underline"
+                >
+                  +91 86603 23478
+                </a>
+              </p>
+              <p>
+                <strong>LinkedIn:</strong>{' '}
+                <a
+                  href="https://www.linkedin.com/in/vior-biotech-equipment-private-limited-1357aa313/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  vior-biotech
+                </a>
+              </p>
             </div>
-            {/* Map */}
-            <div className="h-[400px]">
+
+            {/* Map Card */}
+            <div className="rounded-2xl overflow-hidden shadow-md">
               <iframe
                 title="VIOR Biotech Location"
                 src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d120917.09385323203!2d73.76959657098502!3d18.724070685395713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3bc2c95ba55e3a09%3A0x2cc906a4e1b826db!2sGate%20no%20627%2C%20Plot%202%2F2%2F2%2C%20Tal%2C%20Alandi%20Fata%2C%20Khed%2C%20Kurali%2C%20Maharashtra%20410501!3m2!1d18.7240887!2d73.85199829999999!5e0!3m2!1sen!2sin!4v1746133365456!5m2!1sen!2sin"
                 width="100%"
-                height="100%"
+                height="300"
                 style={{ border: 0 }}
                 loading="lazy"
                 allowFullScreen

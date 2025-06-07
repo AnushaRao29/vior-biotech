@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import viorTeam from '../../assets/bioreactor.jpg';
+import viorTeam from '../../assets/filtration-skids.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -10,13 +10,13 @@ export const FiltrationSkids = () => {
   }, []);
   return (
     <>
-      <div className="min-h-[calc(100vh-64px)] flex justify-center px-4 py-16 bg-gradient-to-b from-blue-50 via-white to-blue-100">
+      <div className="min-h-[calc(100vh-64px)] flex justify-center px-4 py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
         <div
-          className="relative max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-8"
+          className="relative max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-10"
           data-aos="fade-up"
         >
-          {/* Image Card */}
-          <div className="w-full md:w-1/2 rounded-2xl shadow-xl overflow-hidden">
+          {/* Image Section */}
+          <div className="w-full md:w-1/2 rounded-3xl shadow-2xl overflow-hidden">
             <img
               src={viorTeam}
               alt="Vior Biotech Equipment"
@@ -24,10 +24,10 @@ export const FiltrationSkids = () => {
             />
           </div>
           {/* Text Card Overlapping */}
-          <div className="w-full md:w-1/2 md:-ml-20 md:-mt-[-100px] bg-white rounded-2xl shadow-2xl p-8 z-10">
-            <h2 className="text-3xl font-bold  mb-4">Filtration Skids</h2>
+          <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-250px] bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
+            <h2 className="text-4xl  mb-6 drop-shadow-md">Filtration Skids</h2>
 
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
+            <ul className="list-disc list-outside list-inside  space-y-2 text-white">
               <li>
                 Filtration, Tangential Flow Filtration, Microfiltration,
                 Ultrafiltration, Dia-filtration, Reverse Osmosis.

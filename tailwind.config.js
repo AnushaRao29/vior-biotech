@@ -16,7 +16,7 @@ export default {
       }),
       fontFamily: {
         heading: ['Playfair Display', 'serif'], // Update
-        body: ['Source Sans Pro', 'sans-serif'], // Update
+        body: ['Open Sans', 'sans-serif'], // Update
       },
       ringColor: {
         'primary-light': '#6EE7B7',

@@ -1,37 +1,44 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import image3 from '../assets/vior-img-3.jpg';
+import bioprocess from '../assets/bioprocess-engg.jpg';
+import image3 from '../assets/vior-img-14.jpg';
 import image5 from '../assets/vior-img-8.jpg';
 import image6 from '../assets/vior-img-2.jpg';
 import image11 from '../assets/vior-img-11.jpg';
 import image12 from '../assets/vior-img-12.jpg';
+import image13 from '../assets/vior-img-13.jpg';
+import image15 from '../assets/vior-img-16.jpg';
+import isoCertificate from '../assets/VIOR-ISO9001-2015-Certificate.jpg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { useSwipeable } from 'react-swipeable';
-// import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 const banners = [
   {
-    image: image5,
-    heading: 'Turning Vision Into Value',
-    subheading: '',
-    link: '/about/mission',
+    image: bioprocess,
+    heading: 'Bioprocess Engineering',
+    subheading:
+      'Design, Operation, Control and Optimization of Process and Customised Design',
+  },
+  {
+    image: image13,
+    heading: 'Food & Beverage',
+    subheading:
+      'Designing and Manufacturing Processing Systems for Dairy, Beer, Food & Juice - F&B Technology Specialists.',
   },
   {
     image: image5,
     heading: 'Connecting Science with Society',
-    subheading: 'Creating value through research.',
-    // link: '/products/bioreactors',
+    subheading: 'Turning Vision Into Value',
   },
   {
-    image: image5,
+    image: image15,
     heading: 'Upcoming News!',
     subheading: 'Stay Tuned...',
-    // link: '/products/fermenters',
   },
 ];
 
@@ -64,29 +71,16 @@ const sections = [
       'Get in touch with our experts for partnerships, career opportunities, and more information about our biotech initiatives.',
     link: '/contact',
   },
-];
-
-const menuItems = [
-  { label: 'Bioreactors', path: '/products/bioreactors' },
-  { label: 'Fermenters', path: '/products/fermenters' },
-  { label: 'Vaporization Vessel', path: '/products/vaporization-vessel' },
-  { label: 'Process Vessel', path: '/products/process-vessel' },
-  { label: 'Mobile Vessel', path: '/products/mobile-vessel' },
-  { label: 'Buffer Vessel', path: '/products/buffer-vessel' },
-  { label: 'Harvest Vessel', path: '/products/harvest-vessel' },
-  { label: 'Media Vessel', path: '/products/media-vessel' },
-  { label: 'CIP/SIP Skids', path: '/products/cip-sip-skids' },
-  { label: 'Filtration Skids', path: '/products/filtration-skids' },
-  { label: 'CIP Stations', path: '/products/cip-stations' },
-  { label: 'Inactivation Vessel', path: '/products/inactivation-vessel' },
-  { label: 'Mixing Tanks', path: '/products/mixing-tanks' },
-  { label: 'Automation Solutions', path: '/products/automation-solutions' },
+  {
+    title: 'Certified. Trusted. Proven.',
+    image: isoCertificate,
+    description: 'Quality You Can Trust, Standards We Uphold',
+    pdf: '/docs/VIOR-ISO-9001-2015 Certificate.pdf',
+  },
 ];
 
 export const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -111,113 +105,54 @@ export const Home = () => {
   });
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-b bg-blue-50 via-white to-blue-100">
-      {/* Desktop Sidebar */}
-      <aside className="hidden md:flex w-60 bg-gradient-to-b from-white to-gray-50 shadow-xl px-5 py-6 flex-col sticky top-0 h-screen overflow-y-auto space-y-2 border-r border-gray-200">
-        <h2 className="text-lg font-semibold text-gray-700 mb-4">
-          Our Products
-        </h2>
-        <ul className="space-y-2">
-          {menuItems.map((item, index) => (
-            <li key={index}>
-              <button
-                onClick={() => navigate(item.path)}
-                className="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-100 transition"
-              >
-                {/* Optional icon can go here */}
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      {/* Mobile Sidebar Drawer */}
-      <div
-        className={`fixed top-0 left-0 h-full w-64 z-50 transition-transform duration-300 transform bg-white shadow-2xl border-r border-gray-200 md:hidden ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
-      >
-        <aside className="h-full flex flex-col p-5 overflow-y-auto space-y-2">
-          <h2 className="text-lg font-semibold text-gray-700 mb-4">Menu</h2>
-          <ul className="space-y-2">
-            {menuItems.map((item, index) => (
-              <li key={index}>
-                <button
-                  onClick={() => {
-                    navigate(item.path);
-                    setIsSidebarOpen(false);
-                  }}
-                  className="w-full text-left px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-100 transition"
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </aside>
-      </div>
-
-      {/* Toggle Button */}
-      {/* <button
-        className="fixed top-3/4 left-0 z-50 bg-white rounded-r-full shadow-md transition-transform duration-300 md:hidden"
-        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-      >
-        {isSidebarOpen ? (
-          <ChevronLeftIcon className="h-8 w-4 text-gray-800" />
-        ) : (
-          <ChevronRightIcon className="h-8 w-4 text-gray-800" />
-        )}
-      </button> */}
-
+    <div className="flex min-h-screen">
       {/* Main */}
-      <main className="flex-1 space-y-12 pt-12">
+      <main className="flex-1 space-y-12">
         {/* Banner */}
-        <div className="w-full flex justify-center mb-12">
-          <div className="relative w-full md:w-[85%] h-[16rem] sm:h-[20rem] md:h-[24rem] lg:h-[28rem] xl:h-[32rem] 2xl:h-[36rem] rounded-2xl shadow-xl overflow-hidden">
-            {/* Slide Container with Swipe */}
-            <div
-              {...handlers}
-              className="flex transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {banners.map((banner, index) => (
+        <div className="w-full h-screen relative overflow-hidden">
+          {/* Slide Container with Swipe */}
+          <div
+            {...handlers}
+            className="flex h-full transition-transform duration-700 ease-in-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {banners.map((banner, index) => (
+              <div key={index} className="w-full flex-shrink-0 h-full relative">
+                <img
+                  src={banner.image}
+                  alt={`Banner ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
                 <div
-                  key={index}
-                  className="w-full flex-shrink-0 relative h-full"
                   data-aos="fade-up"
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col items-center justify-center text-center px-4"
                 >
-                  <Link to={banner.link}>
-                    <img
-                      src={banner.image}
-                      alt={`Banner ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex flex-col items-center justify-center text-center px-4">
-                      <h2 className="text-white text-2xl md:text-4xl lg:text-6xl font-bold mb-2 drop-shadow-xl">
-                        {banner.heading}
-                      </h2>
-                      <p className="text-white text-base md:text-xl lg:text-3xl font-bold drop-shadow-md">
-                        {banner.subheading}
-                      </p>
-                    </div>
-                  </Link>
+                  <h2 className=" text-white text-3xl md:text-5xl lg:text-7xl font-bold mb-4 drop-shadow-xl">
+                    {banner.heading}
+                  </h2>
+                  <p
+                    data-aos="fade-up"
+                    className=" text-white text-lg md:text-2xl lg:text-4xl drop-shadow-md"
+                  >
+                    {banner.subheading}
+                  </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Dot Buttons */}
-            <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-              {banners.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full ${
-                    currentSlide === index ? 'bg-white' : 'bg-gray-400'
-                  } hover:bg-white transition duration-300`}
-                ></button>
-              ))}
-            </div>
+          {/* Dot Buttons (Visible on all screens) */}
+          <div className="absolute bottom-28 left-0 right-0 flex justify-center space-x-3 z-20">
+            {banners.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-4 h-4 rounded-full border-2 border-white ${
+                  currentSlide === index ? 'bg-white' : 'bg-transparent'
+                } hover:bg-white transition duration-300`}
+                aria-label={`Go to slide ${index + 1}`}
+              ></button>
+            ))}
           </div>
         </div>
 
@@ -228,28 +163,43 @@ export const Home = () => {
               key={index}
               className={`flex flex-col md:flex-row  ${
                 index % 2 !== 0 ? 'md:flex-row-reverse' : ''
-              } items-center max-w-6xl mx-auto gap-10`}
+              } items-center max-w-6xl mx-auto gap-6`}
             >
               <div
-                className="md:w-1/2 text-center md:text-left mb-12"
+                className="md:w-1/2 text-center md:text-left"
                 data-aos="fade-up"
               >
                 <Link to={section.link}>
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-dark mb-4">
+                  <h2 className=" text-3xl md:text-4xl font-bold text-primary-dark mb-4">
                     {section.title}
                   </h2>
                 </Link>
-                <p className="text-gray-700 text-lg leading-relaxed">
+                <p className=" text-lg leading-relaxed">
                   {section.description}
                 </p>
               </div>
-              <div className="md:w-1/2 mb-12">
-                <img
-                  src={section.image}
-                  alt={section.title}
-                  className="w-full h-72 md:h-96 object-cover rounded-2xl shadow-xl"
-                />
-              </div>
+              {section.pdf ? (
+                <a
+                  href={section.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:w-1/2 mb-12 block"
+                >
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="w-full max-h-[300px] object-contain rounded-2xl shadow-xl bg-white transition-transform duration-300 hover:scale-105"
+                  />
+                </a>
+              ) : (
+                <div className="md:w-1/2 mb-12">
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="w-full h-72 md:h-96 object-cover rounded-2xl shadow-xl"
+                  />
+                </div>
+              )}
             </section>
           ))}
         </div>

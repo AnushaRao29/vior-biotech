@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import overview from '../assets/vior-img-8.jpg';
+import overview from '../assets/vior-img-14.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -14,7 +14,7 @@ export const About = () => {
 
   return (
     <div
-      className="relative min-h-screen px-4 pt-12 md:pt-24 pb-20 bg-gray-100"
+      className="relative min-h-screen px-4 pt-24 pb-20 bg-gray-100"
       style={{
         backgroundImage: `url(${overview})`,
         backgroundSize: 'cover',
@@ -23,7 +23,7 @@ export const About = () => {
       }}
     >
       {/* Overlay for fading effect */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 z-0" />
+      <div className="absolute inset-0 bg-black bg-opacity-70 z-0" />
 
       {/* Text Card */}
       <div
@@ -32,14 +32,14 @@ export const About = () => {
       >
         <h2 className="text-3xl font-bold  mb-6">Overview</h2>
 
-        <p className="text-lg md:text-xl lg:text-2xl mb-4">
+        <p className="text-lg mb-10">
           <strong>Vior Biotech</strong> established in 2023, we specialize in
           the design, fabrication, and supply of high-quality process equipment
           for the Biopharma, Pharmaceutical, Food, and Chemical
           industries—serving clients nationwide and globally.
         </p>
-        <h2 className="text-3xl font-bold  mb-4">Sister Company</h2>
-        <p className="text-lg md:text-xl lg:text-2xl mb-4">
+        <h2 className="text-4xl  mb-6 drop-shadow-md">Sister Company</h2>
+        <p className="text-lg mb-10">
           <strong>Sparkon Engineers</strong> has about 35 years’ experience in
           manufacturing of Pressure vessels, Storage tanks, Silos, Heat
           Exchangers for Chemical, Pharmaceutical, Food, Oil & Gas Industries.

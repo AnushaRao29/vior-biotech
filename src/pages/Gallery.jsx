@@ -41,26 +41,28 @@ export const Gallery = () => {
   }, []);
 
   return (
-    <div
-      className="w-full py-12 bg-gradient-to-b bg-blue-50 transition duration-300"
-      data-aos="fade-up"
-    >
-      <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-800 mb-10">
-        Gallery
-      </h2>
+    <div className="flex justify-center px-4 py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
+      <div
+        className="w-full py-6 bg-gradient-to-b bg-blue-50 transition duration-300"
+        data-aos="fade-up"
+      >
+        <h2 className="text-center text-2xl sm:text-3xl font-bold text-white mb-10">
+          Gallery
+        </h2>
 
-      <div className="flex flex-wrap justify-center px-4 sm:px-8 md:px-12 gap-3">
-        {clientele.map((client, index) => (
-          <div key={index} className="w-1/3 flex justify-center">
-            <div className="bg-gray-50 hover:bg-gray-100 rounded-lg shadow-md flex items-center justify-center p-2">
-              <img
-                src={client.logo}
-                alt={client.name}
-                className="h-auto w-auto"
-              />
+        <div className="flex flex-wrap justify-center px-4 sm:px-8 md:px-12 gap-6">
+          {clientele.map((client, index) => (
+            <div key={index} className="w-1/3 flex justify-center">
+              <div className="bg-gray-50 hover:bg-gray-100 rounded-lg shadow-md flex items-center justify-center p-2">
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="h-auto w-auto"
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
