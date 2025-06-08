@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import bioprocess from '../assets/bioprocess-engg.jpg';
-import image3 from '../assets/vior-img-14.jpg';
-import image5 from '../assets/vior-img-8.jpg';
-import image6 from '../assets/vior-img-2.jpg';
-import image11 from '../assets/vior-img-11.jpg';
-import image12 from '../assets/vior-img-12.jpg';
-import image13 from '../assets/vior-img-13.jpg';
-import image15 from '../assets/vior-img-16.jpg';
-import isoCertificate from '../assets/VIOR-ISO9001-2015-Certificate.jpg';
+import image3 from '../assets/homepage-services.jpg';
+import image5 from '../assets/homepage-banner-3.jpg';
+import image6 from '../assets/homepage-banner-1.jpg';
+import image11 from '../assets/homepage-clients.jpg';
+import image12 from '../assets/homepage-contact.jpg';
+import image13 from '../assets/homepage-banner-2.jpg';
+import image15 from '../assets/homepage-banner-4.jpg';
+import isoCertificate from '../assets/vior-iso-certificate.jpg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -75,7 +75,7 @@ const sections = [
     title: 'Certified. Trusted. Proven.',
     image: isoCertificate,
     description: 'Quality You Can Trust, Standards We Uphold',
-    pdf: '/docs/VIOR-ISO-9001-2015 Certificate.pdf',
+    pdf: '/docs/Vior-ISO-9001-Certificate.pdf',
   },
 ];
 
@@ -170,7 +170,7 @@ export const Home = () => {
                 data-aos="fade-up"
               >
                 <Link to={section.link}>
-                  <h2 className="text-3xl md:text-4xl  text-primary-dark mb-4">
+                  <h2 className="text-3xl md:text-4xl  text-primary mb-4">
                     {section.title}
                   </h2>
                 </Link>

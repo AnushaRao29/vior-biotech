@@ -1,10 +1,12 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import bgImage from '../assets/contactBackground-1.jpg';
+import bgImage from '../assets/contactBackground-6.jpg';
+import toast from 'react-hot-toast';
 
 export const Contact = () => {
+  const fileInputRef = useRef(null);
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -22,12 +24,18 @@ export const Contact = () => {
     message: '',
     file: null,
   });
+  if (fileInputRef.current) {
+    fileInputRef.current.value = '';
+  }
   const [status, setStatus] = useState('');
+  const [fileName, setFileName] = useState('');
 
   const handleChange = e => {
     const { name, value, files } = e.target;
     if (name === 'file') {
-      setFormData({ ...formData, file: files[0] });
+      const file = files[0];
+      setFormData({ ...formData, file });
+      setFileName(file?.name || ''); // new state
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -39,17 +47,20 @@ export const Contact = () => {
 
     const data = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
-      if (value) data.append(key, value);
+      if (value !== null && value !== undefined && value !== '') {
+        data.append(key, value);
+      }
     });
 
     try {
-      const res = await fetch('/api/send', {
+      const res = await fetch('http://localhost:3001/api/send', {
         method: 'POST',
-        body: data,
+        body: data, // Send FormData directly
       });
+
       const result = await res.json();
-      setStatus(result.success ? 'Sent successfully!' : 'Failed to send.');
       if (result.success) {
+        toast.success('Message sent successfully!');
         setFormData({
           firstName: '',
           lastName: '',
@@ -63,21 +74,30 @@ export const Contact = () => {
           message: '',
           file: null,
         });
+        // Reset file input manually
+        document.getElementById('fileInput').value = '';
+      } else {
+        toast.error('Failed to send message.');
       }
-    } catch {
-      setStatus('Error sending message.');
+    } catch (error) {
+      console.error(error);
+      toast.error('An error occurred while sending the message.');
     }
+    setStatus('');
   };
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat px-4 py-20 pt-24"
+      className="min-h-screen bg-cover bg-shadow bg-center bg-no-repeat px-4 py-20 pt-24"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="max-w-7xl mx-auto rounded-3xl" data-aos="fade-up">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Form Section */}
-          <div className="rounded-3xl shadow-xl pt-0 p-8" data-aos="fade-right">
+          <div
+            className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_20px_rgba(16,185,129,0.4)] p-8"
+            data-aos="fade-right"
+          >
             <form
               onSubmit={handleSubmit}
               className="space-y-6"
@@ -91,14 +111,14 @@ export const Contact = () => {
                   value={formData.firstName}
                   onChange={handleChange}
                   required
-                  className="input-field"
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
                 />
                 <input
                   name="lastName"
                   placeholder="Last Name*"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="input-field"
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
                 />
               </div>
 
@@ -111,7 +131,7 @@ export const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="input-field"
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
                 />
                 <input
                   name="phone"
@@ -119,7 +139,7 @@ export const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="input-field"
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
                 />
               </div>
 
@@ -130,7 +150,7 @@ export const Contact = () => {
                 value={formData.company}
                 onChange={handleChange}
                 required
-                className="input-field"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
               />
               <input
                 name="companyType"
@@ -138,7 +158,7 @@ export const Contact = () => {
                 value={formData.companyType}
                 onChange={handleChange}
                 required
-                className="input-field"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
               />
               <input
                 name="description"
@@ -146,7 +166,7 @@ export const Contact = () => {
                 value={formData.description}
                 onChange={handleChange}
                 required
-                className="input-field"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
               />
               <input
                 name="jobTitle"
@@ -154,7 +174,7 @@ export const Contact = () => {
                 value={formData.jobTitle}
                 onChange={handleChange}
                 required
-                className="input-field"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
               />
               <input
                 name="country"
@@ -162,7 +182,7 @@ export const Contact = () => {
                 value={formData.country}
                 onChange={handleChange}
                 required
-                className="input-field"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
               />
 
               {/* Message */}
@@ -172,7 +192,7 @@ export const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="input-field h-32 resize-none"
+                className="w-full px-4 py-3 h-32 rounded-xl resize-none bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 shadow-inner focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300"
               />
 
               {/* File Upload */}
@@ -183,15 +203,20 @@ export const Contact = () => {
                 <input
                   type="file"
                   name="file"
+                  id="fileInput"
                   onChange={handleChange}
-                  className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-primary file:text-white hover:file:bg-primary-dark"
+                  ref={fileInputRef}
+                  className="block w-full text-sm text-white file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 transition-all duration-300"
                 />
+                {fileName && (
+                  <p className="text-white mt-2">Selected file: {fileName}</p>
+                )}
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-xl shadow-md transition-all duration-300"
+                className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:from-emerald-700 hover:to-emerald-700 transition-all duration-300"
               >
                 Submit
               </button>
@@ -206,12 +231,13 @@ export const Contact = () => {
           {/* Info and Map Section */}
           <div className="space-y-6">
             {/* Info Card */}
-            <div className="rounded-3xl bg-white/70 backdrop-blur-md shadow-lg p-6 text-sm text-gray-800 space-y-2">
+            <div className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_20px_rgba(16,185,129,0.4)] p-6 text-sm text-white space-y-2">
+              {' '}
               <p>
                 <strong>Email:</strong>{' '}
                 <a
                   href="mailto:info@viorbiotech.com"
-                  className="text-green-700 font-bold hover:underline"
+                  className="text-emerald-400 font-bold hover:underline focus:ring-2 focus:ring-emerald-400 focus:outline-none"
                 >
                   info@viorbiotech.com
                 </a>
@@ -222,7 +248,7 @@ export const Contact = () => {
                   href="https://viorbiotech.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-green-700 font-bold hover:underline"
+                  className="text-emerald-400 font-bold hover:underline focus:ring-2 focus:ring-emerald-400 focus:outline-none"
                 >
                   viorbiotech.com
                 </a>
@@ -235,7 +261,7 @@ export const Contact = () => {
                 <strong>Phone:</strong>{' '}
                 <a
                   href="tel:+918660323478"
-                  className="text-green-700 font-bold hover:underline"
+                  className="text-emerald-400 font-bold hover:underline focus:ring-2 focus:ring-emerald-400 focus:outline-none"
                 >
                   +91 86603 23478
                 </a>
@@ -246,7 +272,7 @@ export const Contact = () => {
                   href="https://www.linkedin.com/in/vior-biotech-equipment-private-limited-1357aa313/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-green-700 font-bold hover:underline"
+                  className="text-emerald-400 font-bold hover:underline focus:ring-2 focus:ring-emerald-400 focus:outline-none"
                 >
                   vior-biotech
                 </a>
@@ -254,7 +280,7 @@ export const Contact = () => {
             </div>
 
             {/* Map Embed */}
-            <div className="rounded-3xl overflow-hidden shadow-md">
+            <div className="rounded-3xl overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.4)] border border-white/20">
               <iframe
                 title="VIOR Biotech Location"
                 src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d120917.09385323203!2d73.76959657098502!3d18.724070685395713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3bc2c95ba55e3a09%3A0x2cc906a4e1b826db!2sGate%20no%20627%2C%20Plot%202%2F2%2F2%2C%20Tal%2C%20Alandi%20Fata%2C%20Khed%2C%20Kurali%2C%20Maharashtra%20410501!3m2!1d18.7240887!2d73.85199829999999!5e0!3m2!1sen!2sin!4v1746133365456!5m2!1sen!2sin"

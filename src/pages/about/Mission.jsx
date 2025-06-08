@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import viorTeam from '../../assets/vior-team.jpg';
+import viorTeam from '../../assets/mission-background.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 

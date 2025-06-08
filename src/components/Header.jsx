@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import viorLogo from '../../src/assets/vior-logo.png';
 import { ChevronDown } from 'lucide-react';
+import { NavItems } from '../Data/NavItems';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,42 +20,7 @@ export const Header = () => {
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
-  const navItems = [
-    {
-      name: 'About Us',
-      submenu: [
-        { name: 'Overview', path: '/about' },
-        { name: 'Mission & Vision', path: '/about/mission' },
-        { name: 'Leadership', path: '/about/leadership' },
-      ],
-    },
-    {
-      name: 'Products',
-      submenu: [
-        { name: 'Bioreactors', path: '/products/bioreactors' },
-        { name: 'Fermenters', path: '/products/fermenters' },
-        { name: 'Vaporization Vessel', path: '/products/vaporization-vessel' },
-        { name: 'Process Vessel', path: '/products/process-vessel' },
-        { name: 'Mobile Vessel', path: '/products/mobile-vessel' },
-        { name: 'Buffer Vessel', path: '/products/buffer-vessel' },
-        { name: 'Harvest Vessel', path: '/products/harvest-vessel' },
-        { name: 'Media Vessel', path: '/products/media-vessel' },
-        { name: 'CIP/SIP Skids', path: '/products/cip-sip-skids' },
-        { name: 'Filtration Skids', path: '/products/filtration-skids' },
-        { name: 'CIP Stations', path: '/products/cip-stations' },
-        { name: 'Inactivation Vessel', path: '/products/inactivation-vessel' },
-        { name: 'Mixing Tanks', path: '/products/mixing-tanks' },
-        {
-          name: 'Automation Solutions',
-          path: '/products/automation-solutions',
-        },
-      ],
-    },
-    { name: 'Clientele', path: '/clientele' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Services', path: '/services' },
-    { name: 'Contact Us', path: '/contact' },
-  ];
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -77,7 +43,7 @@ export const Header = () => {
             scrolled ? 'text-black' : 'text-white'
           }`}
         >
-          {navItems.map(item => (
+          {NavItems.map(item => (
             <div
               key={item.name}
               className="relative group"
@@ -99,11 +65,12 @@ export const Header = () => {
               {/* Submenu */}
               {item.submenu && (
                 <div
-                  className={`absolute left-0 top-full mt-1 min-w-48 bg-white/30 backdrop-blur-md border border-gray-300 rounded-md shadow-lg z-50 pointer-events-auto transition-all duration-200 ${
-                    activeSubmenu === item.name
-                      ? 'opacity-100 visible'
-                      : 'opacity-0 invisible'
-                  }`}
+                  className={`absolute left-0 top-full mt-1 min-w-48 z-50 border border-gray-400 rounded-md shadow-lg transition-all duration-300 pointer-events-auto
+      bg-[rgba(128,128,128,0.4)] backdrop-blur-md text-white ${
+        activeSubmenu === item.name
+          ? 'opacity-100 visible'
+          : 'opacity-0 invisible'
+      }`}
                 >
                   <ul className="py-2">
                     {item.submenu.map(subItem => (
@@ -146,7 +113,7 @@ export const Header = () => {
         </div>
 
         <nav className="flex flex-col space-y-3">
-          {navItems.map(item => (
+          {NavItems.map(item => (
             <div key={item.name}>
               <Link
                 to={item.path}

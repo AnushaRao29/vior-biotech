@@ -6,9 +6,9 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#16A34A', // Tailwind’s emerald-600
-          light: '#6EE7B7', // emerald-300
-          dark: '#065F46', // emerald-800
+          DEFAULT: '#2E7D32', // Rich Green (Material UI Green 700)
+          light: '#81C784', // Light Green (Material UI Green 300)
+          dark: '#1B5E20', // Dark Green (Material UI Green 900)
         },
       },
       backgroundColor: theme => ({
