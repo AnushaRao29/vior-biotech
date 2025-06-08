@@ -20,25 +20,22 @@ export const Services = () => {
               {/*  TODO - capitals first letter */}
               Managing the Project from Order Procurement to Final Handover
             </h2>
+            <h2 className="text-lg md:text-xl lg:text-2xl mb-4">FAT</h2>
             <p className="text-lg mb-4">
-              <h2 className="text-lg md:text-xl lg:text-2xl mb-4">FAT</h2>
               Once Pre-FAT is completed. The system will be completely ready for
               testing. The FAT is performed in Factory in the presence of
               client. The client will witness the FAT and provide punch points
               if any/approve the FAT for shipment.
             </p>
-
+            <h2 className="text-2xl mb-4">SAT</h2>
             <p className="text-lg mb-4">
-              <h2 className="text-2xl mb-4">SAT</h2>
               After shipment, once system is delivered to the site, the system
               will be reassembled, cable connections and its conduit will be
               laid and system will be set for fine tuning. Once system is ready,
               SAT will be performed at Client site.
             </p>
-
             <ul className="list-disc list-outside list-inside list-inside space-y-2 mb-4 pl-5">
               {/*  TODO - remove the bullet point from FAT and SAT and Handover*/}
-
               <li className="text-lg  mb-4">
                 Test Procedures will be prepared in accordance with standards as
                 part of the engineering for Commissioning and Qualification. All
@@ -59,8 +56,8 @@ export const Services = () => {
                 approved by the customer
               </li>
             </ul>
+            <h2 className="text-2xl   mb-4">Handover</h2>
             <p className="text-1xl mb-4">
-              <h2 className="text-2xl   mb-4">Handover</h2>
               After SAT completion, the system will be updated as per the punch
               points issued by the client during SAT and thereafter handover
               report will be hand-overed to the Client.

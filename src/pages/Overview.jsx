@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { SEO } from '../components/SEO';
 
 export const Overview = () => {
   useEffect(() => {
@@ -9,6 +10,10 @@ export const Overview = () => {
   }, []);
   return (
     <>
+      <SEO
+        title="Overview | Vior Biotech"
+        description="Vior handles Design, Operation, Control and Optimization of Process, Customised Design"
+      />
       <div className="min-h-screen flex justify-center px-4 py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
         <div
           className="relative max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-10"

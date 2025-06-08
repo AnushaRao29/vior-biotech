@@ -5,10 +5,17 @@ import { Menu, X } from 'lucide-react';
 import viorLogo from '../../src/assets/vior-logo.png';
 import { ChevronDown } from 'lucide-react';
 import { NavItems } from '../Data/NavItems';
+import { useLocation } from 'react-router-dom';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setActiveSubmenu(null); // reset submenu state on route change
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +46,7 @@ export const Header = () => {
 
         {/* Desktop Nav */}
         <nav
-          className={`hidden md:flex space-x-6 text-sm md:text-base font-medium relative transition-colors duration-300 ${
+          className={`hidden md:flex space-x-4 lg:space-x-6 text-sm lg:text-base font-medium relative transition-colors duration-300 ${
             scrolled ? 'text-black' : 'text-white'
           }`}
         >
@@ -47,7 +54,7 @@ export const Header = () => {
             <div
               key={item.name}
               className="relative group"
-              onMouseEnter={() => setActiveSubmenu(item.name)}
+              onMouseOver={() => setActiveSubmenu(item.name)}
               onMouseLeave={() => setActiveSubmenu(null)}
             >
               <div className="flex items-center gap-1 cursor-pointer px-2 py-2">
@@ -58,19 +65,21 @@ export const Header = () => {
                   {item.name}
                 </Link>
                 {item.submenu && (
-                  <ChevronDown className="w-4 h-4 text-white mt-0.5" />
+                  <ChevronDown
+                    className={`w-4 h-4 ${scrolled ? 'text-black' : 'text-white'} mt-0.5`}
+                  />
                 )}
               </div>
 
               {/* Submenu */}
               {item.submenu && (
                 <div
-                  className={`absolute left-0 top-full mt-1 min-w-48 z-50 border border-gray-400 rounded-md shadow-lg transition-all duration-300 pointer-events-auto
-      bg-[rgba(128,128,128,0.4)] backdrop-blur-md text-white ${
-        activeSubmenu === item.name
-          ? 'opacity-100 visible'
-          : 'opacity-0 invisible'
-      }`}
+                  className={`absolute left-0 top-full mt-1 min-w-48 z-50 border border-gray-400 rounded-md shadow-lg transition-all duration-200 ease-in-out
+          bg-[rgba(128,128,128,0.4)] backdrop-blur-md text-white ${
+            activeSubmenu === item.name
+              ? 'opacity-100 visible pointer-events-auto'
+              : 'opacity-0 invisible pointer-events-none'
+          }`}
                 >
                   <ul className="py-2">
                     {item.submenu.map(subItem => (
@@ -94,7 +103,7 @@ export const Header = () => {
         {/* Hamburger Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className={`md:hidden ${scrolled ? 'text-black' : 'text-white'}`}
+          className={`md:hidden ${scrolled ? 'text-black' : 'text-white'} drop-shadow-[0_0_10px_rgba(0,255,0,0.8)]`}
         >
           <Menu size={28} />
         </button>

@@ -16,6 +16,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { useSwipeable } from 'react-swipeable';
+import { SEO } from '../components/SEO';
 
 const banners = [
   {
@@ -105,105 +106,114 @@ export const Home = () => {
   });
 
   return (
-    <div className="flex min-h-screen">
-      {/* Main */}
-      <main className="flex-1 space-y-12">
-        {/* Banner */}
-        <div className="w-full h-screen relative overflow-hidden">
-          {/* Slide Container with Swipe */}
-          <div
-            {...handlers}
-            className="flex h-full transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-          >
-            {banners.map((banner, index) => (
-              <div key={index} className="w-full flex-shrink-0 h-full relative">
-                <img
-                  src={banner.image}
-                  alt={`Banner ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
+    <>
+      <SEO
+        title="Home | Vior Biotech"
+        description="Vior handles Design, Operation, Control and Optimization of Process, Customised Design"
+      />
+      <div className="flex min-h-screen">
+        {/* Main */}
+        <main className="flex-1 space-y-12">
+          {/* Banner */}
+          <div className="w-full h-screen relative overflow-hidden">
+            {/* Slide Container with Swipe */}
+            <div
+              {...handlers}
+              className="flex h-full transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {banners.map((banner, index) => (
                 <div
-                  data-aos="fade-up"
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col items-center justify-center text-center px-4"
+                  key={index}
+                  className="w-full flex-shrink-0 h-full relative"
                 >
-                  <h2 className=" text-white text-3xl md:text-5xl lg:text-7xl  mb-4 drop-shadow-xl">
-                    {banner.heading}
-                  </h2>
-                  <p
+                  <img
+                    src={banner.image}
+                    alt={`Banner ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div
                     data-aos="fade-up"
-                    className=" text-white text-lg md:text-2xl lg:text-4xl drop-shadow-md"
+                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col items-center justify-center text-center px-4"
                   >
-                    {banner.subheading}
+                    <h2 className=" text-white text-3xl md:text-5xl lg:text-7xl  mb-4 drop-shadow-xl">
+                      {banner.heading}
+                    </h2>
+                    <p
+                      data-aos="fade-up"
+                      className=" text-white text-lg md:text-2xl lg:text-4xl drop-shadow-md"
+                    >
+                      {banner.subheading}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Dot Buttons (Visible on all screens) */}
+            <div className="absolute bottom-28 left-0 right-0 flex justify-center space-x-3 z-20">
+              {banners.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-4 h-4 rounded-full border-2 border-white ${
+                    currentSlide === index ? 'bg-white' : 'bg-transparent'
+                  } hover:bg-white transition duration-300`}
+                  aria-label={`Go to slide ${index + 1}`}
+                ></button>
+              ))}
+            </div>
+          </div>
+
+          {/* Sections */}
+          <div className="ml-4 mr-4">
+            {sections.map((section, index) => (
+              <section
+                key={index}
+                className={`flex flex-col md:flex-row  ${
+                  index % 2 !== 0 ? 'md:flex-row-reverse' : ''
+                } items-center max-w-6xl mx-auto gap-6`}
+              >
+                <div
+                  className="md:w-1/2 text-center md:text-left"
+                  data-aos="fade-up"
+                >
+                  <Link to={section.link}>
+                    <h2 className="text-3xl md:text-4xl  text-primary mb-4">
+                      {section.title}
+                    </h2>
+                  </Link>
+                  <p className=" text-lg leading-relaxed">
+                    {section.description}
                   </p>
                 </div>
-              </div>
+                {section.pdf ? (
+                  <a
+                    href={section.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="md:w-1/2 mb-12 block"
+                  >
+                    <img
+                      src={section.image}
+                      alt={section.title}
+                      className="w-full max-h-[300px] object-contain rounded-2xl shadow-xl bg-white transition-transform duration-300 hover:scale-105"
+                    />
+                  </a>
+                ) : (
+                  <div className="md:w-1/2 mb-12">
+                    <img
+                      src={section.image}
+                      alt={section.title}
+                      className="w-full h-72 md:h-96 object-cover rounded-2xl shadow-xl"
+                    />
+                  </div>
+                )}
+              </section>
             ))}
           </div>
-
-          {/* Dot Buttons (Visible on all screens) */}
-          <div className="absolute bottom-28 left-0 right-0 flex justify-center space-x-3 z-20">
-            {banners.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-4 h-4 rounded-full border-2 border-white ${
-                  currentSlide === index ? 'bg-white' : 'bg-transparent'
-                } hover:bg-white transition duration-300`}
-                aria-label={`Go to slide ${index + 1}`}
-              ></button>
-            ))}
-          </div>
-        </div>
-
-        {/* Sections */}
-        <div className="ml-4 mr-4">
-          {sections.map((section, index) => (
-            <section
-              key={index}
-              className={`flex flex-col md:flex-row  ${
-                index % 2 !== 0 ? 'md:flex-row-reverse' : ''
-              } items-center max-w-6xl mx-auto gap-6`}
-            >
-              <div
-                className="md:w-1/2 text-center md:text-left"
-                data-aos="fade-up"
-              >
-                <Link to={section.link}>
-                  <h2 className="text-3xl md:text-4xl  text-primary mb-4">
-                    {section.title}
-                  </h2>
-                </Link>
-                <p className=" text-lg leading-relaxed">
-                  {section.description}
-                </p>
-              </div>
-              {section.pdf ? (
-                <a
-                  href={section.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="md:w-1/2 mb-12 block"
-                >
-                  <img
-                    src={section.image}
-                    alt={section.title}
-                    className="w-full max-h-[300px] object-contain rounded-2xl shadow-xl bg-white transition-transform duration-300 hover:scale-105"
-                  />
-                </a>
-              ) : (
-                <div className="md:w-1/2 mb-12">
-                  <img
-                    src={section.image}
-                    alt={section.title}
-                    className="w-full h-72 md:h-96 object-cover rounded-2xl shadow-xl"
-                  />
-                </div>
-              )}
-            </section>
-          ))}
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 };
