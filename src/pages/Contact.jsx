@@ -64,7 +64,7 @@ export const Contact = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3001/api/send`, {
+      const res = await fetch(`https://vior-server.onrender.com/api/send`, {
         method: 'POST',
         body: data,
       });
