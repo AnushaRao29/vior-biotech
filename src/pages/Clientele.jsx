@@ -12,6 +12,7 @@ import client9 from '../assets/client9.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { SEO } from '../components/SEO';
+import { Texts } from '../constants/Texts';
 
 const clientele = [
   { name: 'Client 1', logo: client1 },
@@ -44,17 +45,9 @@ export const Clientele = () => {
           {/* Text Card Overlapping */}
           <div className="w-full mx-auto  bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
             <h2 className="text-center text-3xl md:text-4xl text-white mb-10">
-              Our Clientele
+              {Texts.clientele.title}
             </h2>
-            <p className="text-lg mb-10">
-              At <strong>VIOR</strong>, we are committed each day to delivering
-              impactful solutions that truly make a difference to our
-              customers—leading niche biopharmaceutical companies and government
-              organizations that play a vital role in the lifesaving industry.
-              Every effort we make is driven by the potential to create
-              meaningful value for our clients, helping us advance our mission
-              and contribute to a greater cause.
-            </p>
+            <p className="text-lg mb-10">{Texts.clientele.body}</p>
 
             <div className="flex flex-wrap justify-center px-4 sm:px-8 md:px-12 gap-y-4">
               {clientele.map((client, index) => (

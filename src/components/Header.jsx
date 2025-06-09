@@ -14,7 +14,7 @@ export const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
-    setActiveSubmenu(null); // reset submenu state on route change
+    setActiveSubmenu(null);
   }, [location.pathname]);
 
   useEffect(() => {

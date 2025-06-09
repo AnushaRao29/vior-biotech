@@ -1,82 +1,77 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSwipeable } from 'react-swipeable';
+import { SEO } from '../components/SEO';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import bioprocess from '../assets/bioprocess-engg.jpg';
-import image3 from '../assets/homepage-services.jpg';
-import image5 from '../assets/homepage-banner-3.jpg';
-import image6 from '../assets/homepage-banner-1.jpg';
-import image11 from '../assets/homepage-clients.jpg';
-import image12 from '../assets/homepage-contact.jpg';
-import image13 from '../assets/homepage-banner-2.jpg';
-import image15 from '../assets/homepage-banner-4.jpg';
-import isoCertificate from '../assets/vior-iso-certificate.jpg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { useSwipeable } from 'react-swipeable';
-import { SEO } from '../components/SEO';
+import homepageBanner1 from '../assets/homepage-banner-1.jpg';
+import homepageBanner2 from '../assets/homepage-banner-2.jpg';
+import homepageBanner3 from '../assets/homepage-banner-3.jpg';
+import homepageBanner4 from '../assets/homepage-banner-4.jpg';
+import homepageMission from '../assets/homepage-mission.jpg';
+import homepageClients from '../assets/homepage-clients.jpg';
+import homepageServices from '../assets/homepage-services.jpg';
+import homepageContact from '../assets/homepage-contact.jpg';
+import isoCertificate from '../assets/vior-iso-certificate.jpg';
+import { Texts } from '../constants/Texts';
 
 const banners = [
   {
-    image: bioprocess,
-    heading: 'Bioprocess Engineering',
-    subheading:
-      'Design, Operation, Control and Optimization of Process and Customised Design',
+    image: homepageBanner1,
+    heading: Texts.home.homepageBannerTitle1,
+    subheading: Texts.home.homepageBannerSubheading1,
   },
   {
-    image: image13,
-    heading: 'Food & Beverage',
-    subheading:
-      'Designing and Manufacturing Processing Systems for Dairy, Beer, Food & Juice - F&B Technology Specialists.',
+    image: homepageBanner2,
+    heading: Texts.home.homepageBannerTitle2,
+    subheading: Texts.home.homepageBannerSubheading2,
   },
   {
-    image: image5,
-    heading: 'Connecting Science with Society',
-    subheading: 'Turning Vision Into Value',
+    image: homepageBanner3,
+    heading: Texts.home.homepageBannerTitle3,
+    subheading: Texts.home.homepageBannerSubheading3,
   },
   {
-    image: image15,
-    heading: 'Upcoming News!',
-    subheading: 'Stay Tuned...',
+    image: homepageBanner4,
+    heading: Texts.home.homepageBannerTitle4,
+    subheading: Texts.home.homepageBannerSubheading4,
   },
 ];
 
 const sections = [
   {
-    title: 'Our Mission & Vision',
-    image: image6,
-    description:
-      'Specialize in the design, fabrication, and supply of high-quality process equipment for the Biopharma, Pharmaceutical, Food, and Chemical industries—serving clients nationwide and globally',
-    link: '/about/mission',
+    title: Texts.home.homepageSectionTitle1,
+    image: homepageMission,
+    description: Texts.home.homepageSectionDescription1,
+    link: Texts.home.homepageSectionLink1,
   },
   {
-    title: 'Our Clientele',
-    image: image11,
-    description:
-      'Every effort we make is driven by the potential to create meaningful value for our clients, helping us advance our mission and contribute to a greater cause.',
-    link: '/clientele',
+    title: Texts.home.homepageSectionTitle2,
+    image: homepageClients,
+    description: Texts.home.homepageSectionDescription2,
+    link: Texts.home.homepageSectionLink2,
   },
   {
-    title: 'Innovative Product Development',
-    image: image3,
-    description:
-      'From pharmaceuticals to diagnostic tools, our pipeline is built to meet the evolving needs of the healthcare industry.',
-    link: '/services',
+    title: Texts.home.homepageSectionTitle3,
+    image: homepageServices,
+    description: Texts.home.homepageSectionDescription3,
+    link: Texts.home.homepageSectionLink3,
   },
   {
-    title: 'Connect with VIOR Biotech',
-    image: image12,
-    description:
-      'Get in touch with our experts for partnerships, career opportunities, and more information about our biotech initiatives.',
-    link: '/contact',
+    title: Texts.home.homepageSectionTitle4,
+    image: homepageContact,
+    description: Texts.home.homepageSectionDescription4,
+    link: Texts.home.homepageSectionLink4,
   },
   {
-    title: 'Certified. Trusted. Proven.',
+    title: Texts.home.homepageSectionTitle5,
     image: isoCertificate,
-    description: 'Quality You Can Trust, Standards We Uphold',
-    pdf: '/docs/Vior-ISO-9001-Certificate.pdf',
+    description: Texts.home.homepageSectionDescription5,
+    pdf: Texts.home.homepageSectionLink5,
   },
 ];
 
@@ -88,7 +83,7 @@ export const Home = () => {
 
     const interval = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % banners.length);
-    }, 8000); // change slide every 8s
+    }, 5000); // change slide every 5s
 
     return () => clearInterval(interval);
   }, []);
@@ -139,12 +134,12 @@ export const Home = () => {
                     <h2 className=" text-white text-3xl md:text-5xl lg:text-7xl  mb-4 drop-shadow-xl">
                       {banner.heading}
                     </h2>
-                    <p
+                    <h6
                       data-aos="fade-up"
                       className=" text-white text-lg md:text-2xl lg:text-4xl drop-shadow-md"
                     >
                       {banner.subheading}
-                    </p>
+                    </h6>
                   </div>
                 </div>
               ))}
@@ -170,7 +165,7 @@ export const Home = () => {
             {sections.map((section, index) => (
               <section
                 key={index}
-                className={`flex flex-col md:flex-row  ${
+                className={`flex flex-col md:flex-row ${
                   index % 2 !== 0 ? 'md:flex-row-reverse' : ''
                 } items-center max-w-6xl mx-auto gap-6`}
               >
@@ -178,37 +173,27 @@ export const Home = () => {
                   className="md:w-1/2 text-center md:text-left"
                   data-aos="fade-up"
                 >
-                  <Link to={section.link}>
-                    <h2 className="text-3xl md:text-4xl  text-primary mb-4">
+                  <Link to={section.link || '#'}>
+                    <h2 className="text-3xl md:text-4xl text-primary mb-4">
                       {section.title}
                     </h2>
                   </Link>
-                  <p className=" text-lg leading-relaxed">
+                  <p className="text-lg leading-relaxed">
                     {section.description}
                   </p>
                 </div>
-                {section.pdf ? (
-                  <a
-                    href={section.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="md:w-1/2 mb-12 block"
-                  >
-                    <img
-                      src={section.image}
-                      alt={section.title}
-                      className="w-full max-h-[300px] object-contain rounded-2xl shadow-xl bg-white transition-transform duration-300 hover:scale-105"
-                    />
-                  </a>
-                ) : (
-                  <div className="md:w-1/2 mb-12">
-                    <img
-                      src={section.image}
-                      alt={section.title}
-                      className="w-full h-72 md:h-96 object-cover rounded-2xl shadow-xl"
-                    />
-                  </div>
-                )}
+
+                <div className="md:w-1/2 mb-12">
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className={`w-full ${
+                      index === sections.length - 1
+                        ? 'max-h-[400px] object-contain'
+                        : 'h-72 md:h-96 object-cover rounded-2xl shadow-xl'
+                    }`}
+                  />
+                </div>
               </section>
             ))}
           </div>

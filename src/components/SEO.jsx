@@ -1,12 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import PropTypes from 'prop-types';
+import { Texts } from '../constants/Texts';
 
 export const SEO = ({
-  title = 'Vior Biotech Equipment Pvt. Ltd.',
-  description = 'Vior Biotech is a self-sustainable bioprocess equipment manufacturing company serving Biopharma, Pharma, Food, and Chemical industries.',
-  ogTitle = 'Vior Biotech',
-  ogDescription = 'Trusted bioprocess equipment partner across the nation.',
+  title = Texts.seo.title,
+  description = Texts.seo.description,
+  ogTitle = Texts.seo.ogTitle,
+  ogDescription = Texts.seo.ogDescription,
 }) => {
   return (
     <Helmet>

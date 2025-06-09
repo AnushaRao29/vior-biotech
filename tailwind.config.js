@@ -17,6 +17,7 @@ export default {
       }),
       fontFamily: {
         heading: ['Playfair Display', 'serif'], // Update
+        subtitle: ['Cambria', 'serif'], // Update
         body: ['Open Sans', 'sans-serif'], // Update
       },
       ringColor: {

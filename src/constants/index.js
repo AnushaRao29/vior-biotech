@@ -1,2 +1,2 @@
-export { TEXTS } from './Texts';
-export { LINKS } from './Links';
+export { Texts } from './Texts';
+export { Links } from './Links';

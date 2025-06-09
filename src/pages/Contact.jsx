@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import bgImage from '../assets/contactBackground-6.jpg';
+import bgImage from '../assets/background-contact.jpg';
 import toast from 'react-hot-toast';
+import { Texts, Links } from '../constants';
 
 export const Contact = () => {
   const fileInputRef = useRef(null);
@@ -43,19 +44,19 @@ export const Contact = () => {
     const phoneRegex = /^[0-9]{10}$/;
 
     if (!nameRegex.test(formData.firstName)) {
-      toast.error('First name should contain only letters.');
+      toast.error(Texts.errorMsg.firstName);
       return;
     }
     if (!nameRegex.test(formData.lastName)) {
-      toast.error('Last name should contain only letters.');
+      toast.error(Texts.errorMsg.lastName);
       return;
     }
     if (!phoneRegex.test(formData.phone)) {
-      toast.error('Phone number should be exactly 10 digits.');
+      toast.error(Texts.errorMsg.phone);
       return;
     }
 
-    setStatus('Sending...');
+    setStatus(Texts.contactPage.sendingStatus);
 
     const data = new FormData();
     for (const [key, value] of Object.entries(formData)) {
@@ -71,11 +72,11 @@ export const Contact = () => {
       const result = await res.json();
 
       if (result.success) {
-        toast.success('Message sent successfully!');
+        toast.success(Texts.contactPage.successToast);
         setFormData(initialFormData);
         if (fileInputRef.current) fileInputRef.current.value = '';
       } else {
-        toast.error('Failed to send message.');
+        toast.error(Texts.contactPage.errorToast);
       }
     } catch (error) {
       console.error(error);
@@ -109,7 +110,7 @@ export const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
                     name="firstName"
-                    placeholder="First Name*"
+                    placeholder={Texts.contactPage.fieldPlaceholder.firstName}
                     value={formData.firstName}
                     onChange={handleChange}
                     required
@@ -117,9 +118,10 @@ export const Contact = () => {
                   />
                   <input
                     name="lastName"
-                    placeholder="Last Name*"
+                    placeholder={Texts.contactPage.fieldPlaceholder.lastName}
                     value={formData.lastName}
                     onChange={handleChange}
+                    required
                     className={inputClass}
                   />
                 </div>
@@ -127,7 +129,7 @@ export const Contact = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email ID*"
+                    placeholder={Texts.contactPage.fieldPlaceholder.emailID}
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -135,7 +137,7 @@ export const Contact = () => {
                   />
                   <input
                     name="phone"
-                    placeholder="Phone Number*"
+                    placeholder={Texts.contactPage.fieldPlaceholder.phoneNum}
                     value={formData.phone}
                     onChange={handleChange}
                     required
@@ -144,7 +146,7 @@ export const Contact = () => {
                 </div>
                 <input
                   name="company"
-                  placeholder="Company*"
+                  placeholder={Texts.contactPage.fieldPlaceholder.company}
                   value={formData.company}
                   onChange={handleChange}
                   required
@@ -152,15 +154,15 @@ export const Contact = () => {
                 />
                 <input
                   name="companyType"
-                  placeholder="Type of Company*"
+                  placeholder={Texts.contactPage.fieldPlaceholder.companyType}
                   value={formData.companyType}
                   onChange={handleChange}
                   required
                   className={inputClass}
                 />
-                <input
+                <textarea
                   name="description"
-                  placeholder="Description*"
+                  placeholder={Texts.contactPage.fieldPlaceholder.description}
                   value={formData.description}
                   onChange={handleChange}
                   required
@@ -168,7 +170,7 @@ export const Contact = () => {
                 />
                 <input
                   name="jobTitle"
-                  placeholder="Job Title*"
+                  placeholder={Texts.contactPage.fieldPlaceholder.jobTitle}
                   value={formData.jobTitle}
                   onChange={handleChange}
                   required
@@ -176,7 +178,7 @@ export const Contact = () => {
                 />
                 <input
                   name="country"
-                  placeholder="Country*"
+                  placeholder={Texts.contactPage.fieldPlaceholder.country}
                   value={formData.country}
                   onChange={handleChange}
                   required
@@ -185,16 +187,16 @@ export const Contact = () => {
 
                 <textarea
                   name="message"
-                  placeholder="Primary source where you heard about Vior*"
+                  placeholder={Texts.contactPage.fieldPlaceholder.primarySource}
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className={`${inputClass} h-32 resize-none`}
+                  className={inputClass}
                 />
 
                 <div>
                   <label className="block mb-1 text-lg text-white font-medium">
-                    Attachments (if any):
+                    {Texts.contactPage.attachments}
                   </label>
                   <input
                     type="file"
@@ -209,10 +211,10 @@ export const Contact = () => {
                   type="submit"
                   className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:from-emerald-700 hover:to-emerald-700 transition-all duration-300"
                 >
-                  Submit
+                  {Texts.contactPage.submitButton}
                 </button>
 
-                {status === 'Sending...' && (
+                {status === Texts.contactPage.sendingStatus && (
                   <div className="flex justify-center">
                     <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-emerald-500" />
                   </div>
@@ -234,47 +236,47 @@ export const Contact = () => {
               <div className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_20px_rgba(16,185,129,0.4)] p-6 text-lg text-white space-y-2">
                 {' '}
                 <p>
-                  <strong>Email:</strong>{' '}
+                  <strong>{Texts.contactPage.email}:</strong>{' '}
                   <a
-                    href="mailto:info@viorbiotech.com"
+                    href={Links.mailTo}
                     className="text-emerald-400 font-bold hover:underline focus:ring-2 focus:ring-emerald-400 focus:outline-none"
                   >
-                    info@viorbiotech.com
+                    {Links.mailID}
                   </a>
                 </p>
                 <p>
-                  <strong>Website:</strong>{' '}
+                  <strong>{Texts.contactPage.website}:</strong>{' '}
                   <a
-                    href="https://viorbiotech.com/"
+                    href={Links.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-400 font-bold hover:underline focus:ring-2 focus:ring-emerald-400 focus:outline-none"
                   >
-                    viorbiotech.com
+                    {Links.website}
                   </a>
                 </p>
                 <p>
-                  <strong>Address:</strong> Plot No. 2/2/2, Gat No 627, Tal -
-                  Khed, Kuruli, Dist-Pune, Maharashtra, India, 410501
+                  <strong>{Texts.contactPage.address}:</strong>{' '}
+                  {Texts.contactPage.companyAddr}
                 </p>
                 <p>
-                  <strong>Phone:</strong>{' '}
+                  <strong>{Texts.contactPage.phone}:</strong>{' '}
                   <a
-                    href="tel:+918660323478"
+                    href={Links.callTo}
                     className="text-emerald-400 font-bold hover:underline focus:ring-2 focus:ring-emerald-400 focus:outline-none"
                   >
-                    +91 86603 23478
+                    {Links.phoneNum}
                   </a>
                 </p>
                 <p>
-                  <strong>LinkedIn:</strong>{' '}
+                  <strong>{Texts.contactPage.linkedIn}:</strong>{' '}
                   <a
-                    href="https://www.linkedin.com/in/vior-biotech-equipment-private-limited-1357aa313/"
+                    href={Links.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-400 font-bold hover:underline focus:ring-2 focus:ring-emerald-400 focus:outline-none"
                   >
-                    vior-biotech
+                    {Links.linkedin}
                   </a>
                 </p>
               </div>
@@ -282,8 +284,8 @@ export const Contact = () => {
               {/* Map Embed */}
               <div className="rounded-3xl overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.4)] border border-white/20">
                 <iframe
-                  title="VIOR Biotech Location"
-                  src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d120917.09385323203!2d73.76959657098502!3d18.724070685395713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3bc2c95ba55e3a09%3A0x2cc906a4e1b826db!2sGate%20no%20627%2C%20Plot%202%2F2%2F2%2C%20Tal%2C%20Alandi%20Fata%2C%20Khed%2C%20Kurali%2C%20Maharashtra%20410501!3m2!1d18.7240887!2d73.85199829999999!5e0!3m2!1sen!2sin!4v1746133365456!5m2!1sen!2sin"
+                  title={Texts.contactPage.location}
+                  src={Links.googleMap}
                   width="100%"
                   height="300"
                   style={{ border: 0 }}

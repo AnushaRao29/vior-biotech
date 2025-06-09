@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronUpIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
 import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa';
-import { TEXTS, LINKS } from '../constants';
+import { Texts, Links } from '../constants';
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -24,22 +24,22 @@ export const Footer = () => {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-base">
           {/* Left Side: Company Info */}
           <div className="text-left space-y-2">
-            <p className="font-semibold">{TEXTS.COMPANY_NAME}</p>
-            <p>{TEXTS.COMPANY_ADDR}</p>
-            <p>{TEXTS.COMPANY_PHONE}</p>
-            <p className="">{TEXTS.FOOTER_TEXT}</p>
+            <p className="font-semibold">{Texts.contactPage.companyName}</p>
+            <p>{Texts.contactPage.companyAddr}</p>
+            <p>{Texts.contactPage.companyPhone}</p>
+            <p className="">{Texts.footer.footerTitle}</p>
           </div>
 
           {/* Right Side: Links */}
           <div className="text-right space-y-2 ">
             <p>
               <a href="#" className="hover:underline">
-                {TEXTS.PRIVACY_POLICY}
+                {Texts.footer.privacyPolicy}
               </a>
             </p>
             <p>
               <a href="#" className="hover:underline">
-                {TEXTS.TERMS_OF_USE}
+                {Texts.footer.termsOfUse}
               </a>
             </p>
           </div>
@@ -51,7 +51,7 @@ export const Footer = () => {
         <div className="max-w-8xl mx-auto px-4 flex gap-8 text-white">
           {/* Email */}
           <a
-            href={LINKS.MAIL}
+            href={Links.mailTo}
             aria-label="E-mail"
             className="hover:text-yellow-400 transition"
           >
@@ -59,7 +59,7 @@ export const Footer = () => {
           </a>
           {/* WhatsApp */}
           <a
-            href={LINKS.WHATSAPP}
+            href={Links.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
@@ -70,7 +70,7 @@ export const Footer = () => {
 
           {/* LinkedIn */}
           <a
-            href={LINKS.LINKEDIN}
+            href={Links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"

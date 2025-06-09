@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { SEO } from '../../components/SEO';
+import { Texts } from '../../constants/Texts';
 
 export const Leadership = () => {
   useEffect(() => {
@@ -22,19 +23,9 @@ export const Leadership = () => {
           {/* Text Card Overlapping */}
           <div className="w-full mx-auto md:w-3/4 bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
             <h2 className="text-3xl md:text-4xl mb-6">
-              Founder & CEO : Mr. Raju Rupnar
+              {Texts.leadership.title}
             </h2>
-            <p className="text-lg mb-10">
-              Mr. R. A. Rupnar, has been the Founder and Chief Executive Officer
-              of VIOR Biotech Equipment Private Limited & Sparkon Engineers and
-              has about 35 years’ experience in manufacturing of Pressure
-              vessels, Storage tanks, Silos, Heat Exchangers for Chemical,
-              Pharmaceutical, Food, Oil & Gas Industries. He has led the company
-              through most challenging situations and enabled it to be better
-              and stronger. Under his leadership, the company envisages vertical
-              and horizontal expansion to be one of the leading Engineering and
-              Manufacturing Company globally.
-            </p>
+            <p className="text-lg mb-10">{Texts.leadership.body}</p>
           </div>
         </div>
       </div>
