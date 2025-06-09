@@ -64,10 +64,13 @@ export const Contact = () => {
     }
 
     try {
-      const res = await fetch(`https://vior-server.onrender.com/api/send`, {
-        method: 'POST',
-        body: data,
-      });
+      const res = await fetch(
+        `https://vior-biotech-server.onrender.com/api/send`,
+        {
+          method: 'POST',
+          body: data,
+        }
+      );
 
       const result = await res.json();
 
