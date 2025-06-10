@@ -26,7 +26,7 @@ import {
 
 export const RoutesElements = [
   { path: '/', element: <Home /> },
-  { path: '/about', element: <Overview /> },
+  { path: '/about/overview', element: <Overview /> },
   { path: '/about/mission', element: <Mission /> },
   { path: '/about/leadership', element: <Leadership /> },
   { path: '/products/bioreactors', element: <BioReactors /> },

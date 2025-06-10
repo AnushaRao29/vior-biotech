@@ -38,7 +38,7 @@ export const Gallery = () => {
   return (
     <div className="px-4 py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
       <div className="max-w-6xl mx-auto" data-aos="fade-up">
-        <h2 className="text-center text-3xl md:text-4xl text-white mb-10">
+        <h2 className="text-center text-3xl md:text-4xl mb-10">
           {Texts.gallery.title}
         </h2>
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
-import viorTeam from '../../assets/products-bioreactor.jpg';
+import image from '../../assets/products-bioreactor.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Texts } from '../../constants/Texts';
 
 export const VaporizationVessel = () => {
   useEffect(() => {
@@ -18,27 +19,23 @@ export const VaporizationVessel = () => {
           {/* Image Section */}
           <div className="w-full md:w-1/2 rounded-3xl shadow-2xl overflow-hidden">
             <img
-              src={viorTeam}
+              src={image}
               alt="Vior Biotech Equipment"
               className="w-full h-full object-cover"
             />
           </div>
           {/* Text Card Overlapping */}
-          <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-100px] bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
+          <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-100px] bg-white/10 backdrop-blur-lg  rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
             <h2 className="text-3xl md:text-4xl mb-6 drop-shadow-md">
-              Vaporization Vessel
+              {Texts.products.vaporizationVessel.title}
             </h2>
 
-            <ul className="list-disc list-outside list-inside  space-y-2 text-white">
-              <li>Minimum Space requirement</li>
-              <li>
-                Optimized Vaporization Design, Liquid conversion to Vapors,
-                Liquids to Solids formation.
-              </li>
-              <li>Range: 5L - 25KL (Customized to user requirement)</li>
-              <li>Agitator: Top Mounted / Bottom Mounted, Vibro Mixer.</li>
-              <li>Design compliance to ASME BPE and GMP 5 Guidelines.</li>
-              <li>PLC control system with HMI and SCADA.</li>
+            <ul className="list-disc list-outside list-inside  space-y-2">
+              {Texts.products.vaporizationVessel.points.map((point, index) => (
+                <li className="text-lg mb-4" key={index}>
+                  {point}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

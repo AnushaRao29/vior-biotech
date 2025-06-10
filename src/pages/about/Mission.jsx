@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import viorTeam from '../../assets/background-mission.jpg';
+import image from '../../assets/background-mission.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { SEO } from '../../components/SEO';
@@ -24,37 +24,27 @@ export const Mission = () => {
           {/* Image Section */}
           <div className="w-full md:w-1/2 rounded-3xl shadow-2xl overflow-hidden">
             <img
-              src={viorTeam}
+              src={image}
               alt="Vior Biotech Equipment"
               className="w-full h-full object-cover"
             />
           </div>
 
           {/* Text Content */}
-          <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-100px] bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
+          <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-100px] bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
             <h2 className="text-3xl md:text-4xl mb-6 drop-shadow-md">
-              {Texts.mission.title}
+              {Texts.mission.title1}
             </h2>
-            <p className="text-lg mb-4 ">
-              Vior Biotech Equipment Private Limited is a self-sustainable,
-              bioprocess equipment manufacturing company established in 2023.
-              Vior aims to serve the Biopharma, Pharmaceutical, Food, and
-              Chemical industries across the nation.
-            </p>
-            <p className="text-xl font-semibold  mb-4">
-              Turning Vision into Value:
-            </p>
+            <p className="text-lg mb-4">{Texts.mission.body1}</p>
+            <h2 className="text-3xl md:text-4xl mb-6 drop-shadow-md">
+              {Texts.mission.title2}
+            </h2>
             <ul className="list-disc list-outside list-inside space-y-3 text-lg">
-              <li>
-                Understand user specifications and requirements to deliver
-                high-quality products in compliance with standard guidelines.
-              </li>
-              <li>Meet and deliver customer expectations with ease.</li>
-              <li>
-                Be open to customized and innovative ideas for process
-                optimization.
-              </li>
-              <li>Prioritize safety of the personnel involved.</li>
+              {Texts.mission.body2.map((point, index) => (
+                <li className="text-lg mb-4" key={index}>
+                  {point}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

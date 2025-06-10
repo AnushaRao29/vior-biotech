@@ -21,7 +21,7 @@ export const Leadership = () => {
           data-aos="fade-up"
         >
           {/* Text Card Overlapping */}
-          <div className="w-full mx-auto md:w-3/4 bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
+          <div className="w-full mx-auto md:w-3/4 bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
             <h2 className="text-3xl md:text-4xl mb-6">
               {Texts.leadership.title}
             </h2>

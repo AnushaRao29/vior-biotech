@@ -1,98 +1,46 @@
 import React from 'react';
 import { useEffect } from 'react';
-import overview from '../../assets/background-automation.jpg';
+import image from '../../assets/background-automation.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Texts } from '../../constants/Texts';
 
 export const AutomationSolutions = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
-
   return (
-    <div
-      className="relative min-h-screen px-4 pt-24 pb-20 bg-gray-100"
-      style={{
-        backgroundImage: `url(${overview})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
-      {/* Overlay for fading effect */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 z-0" />
-
-      {/* Text Card */}
-      <div
-        className="relative z-10 max-w-6xl w-full mx-auto bg-white bg-opacity-80 rounded-2xl shadow-2xl p-8 md:p-12"
-        data-aos="fade-up"
-      >
-        <h2 className="text-3xl md:text-4xl mb-4">
-          Simplifying Complexity with Smart Automation
-        </h2>
-        <p className="text-lg mb-4">
-          At <strong>Vior</strong>, we simplify your complex production
-          challenges with intelligent, streamlined automation solutions. Whether
-          it’s full-scale plant automation or tailored, system-specific
-          requirements, our offerings are 21 CFR Part 11 compliant, designed to
-          meet the stringent demands of pharmaceutical and biopharmaceutical
-          manufacturing.
-        </p>
-        <h2 className="text-3xl md:text-4xl mb-4">
-          Smarter Automation. Smoother Operations.{' '}
-        </h2>
-        <p className="text-lg mb-4">
-          Our automation technology empowers you to monitor, record, analyze,
-          and control entire plant operations—from individual equipment and
-          Human Machine Interfaces (HMI), to Manufacturing Execution Systems
-          (MES), and right through to seamless integration with Enterprise
-          Resource Planning (ERP) systems. All from a single control station.
-        </p>
-        <p className="text-lg mb-4">The result?</p>
-        <ul className="list-disc list-outside list-inside space-y-2 mb-4">
-          <li>Efficient batch control</li>
-          <li>Consistent batch reproducibility</li>
-          <li>Effortless audit compliance</li>
-        </ul>
-        <h2 className="text-3xl md:text-4xl mb-4">Why Vior Automation? </h2>
-        <p className="text-lg mb-4">
-          Our dedicated Automation Team brings deep domain expertise and
-          delivers user-friendly, regulation-ready solutions—crafted
-          specifically for the rigorous environments of pharma and biopharma
-          production.
-        </p>
-        <h2 className="text-3xl md:text-4xl mb-4">Our Capabilities </h2>
-        <p className="text-lg mb-4">
-          We offer seamless automation and integration across:
-        </p>
-        <ul className="list-disc list-outside list-inside space-y-2 mb-4">
-          <li>
-            Multiple Unit Operations Fermentation, Cleaning-In-Place (CIP),
-            Sterilization-In-Place (SIP), chromatography, and more.
-          </li>
-          <li>
-            Multiple Production Stages From upstream to downstream, all the way
-            to fill & finish processes.
-          </li>
-          <li>
-            3rd Party Equipment Integration Smooth, unified control over systems
-            from multiple vendors across various operations.{' '}
-          </li>
-          <li>
-            System Retrofits Enhancing legacy systems with modern automation
-            without replacing existing infrastructure.
-          </li>
-          <li>
-            System Upgrades Modernizing and scaling your operations with the
-            latest automation technologies.
-          </li>
-        </ul>
-        <p className="text-lg mb-4">
-          Let <strong>Vior</strong> transform your production into a
-          streamlined, compliant, and future-ready operation—designed with
-          simplicity and precision.
-        </p>
+    <>
+      <div className="min-h-screen px-4 py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white">
+        <div
+          className="relative max-w-6xl w-full flex flex-col items-center gap-10 mx-auto"
+          data-aos="fade-up"
+        >
+          <div className="w-full bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
+            {Texts.products.automationSolutions.map((data, index) => (
+              <div key={index}>
+                <h2 className="text-3xl md:text-4xl mb-4">{data.title}</h2>
+                <p className="text-lg mb-4">{data.body}</p>
+                {data.points && (
+                  <ul className="list-disc list-outside list-inside space-y-2 mb-4">
+                    {data.points.map((point, index1) => (
+                      <li className="text-lg mb-4" key={index1}>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+          {/* Image */}
+          <img
+            src={image}
+            alt="Automation"
+            className="w-full rounded-xl shadow-lg"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };

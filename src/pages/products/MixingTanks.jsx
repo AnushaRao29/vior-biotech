@@ -1,8 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
-import viorTeam from '../../assets/products-mixing-tanks.jpg';
+import image from '../../assets/products-mixing-tanks.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Texts } from '../../constants/Texts';
 
 export const MixingTanks = () => {
   useEffect(() => {
@@ -18,27 +19,24 @@ export const MixingTanks = () => {
           {/* Image Section */}
           <div className="w-full md:w-1/2 rounded-3xl shadow-2xl overflow-hidden">
             <img
-              src={viorTeam}
+              src={image}
               alt="Vior Biotech Equipment"
               className="w-full h-full object-cover"
             />
           </div>
           {/* Text Card Overlapping */}
-          <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-100px] bg-white/10 backdrop-blur-lg text-white rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
+          <div className="w-full md:w-3/4 md:-ml-20 md:-mt-[-100px] bg-white/10 backdrop-blur-lg  rounded-2xl shadow-2xl p-10 border border-white/20 z-10">
             <h2 className="text-3xl md:text-4xl mb-6 drop-shadow-md">
-              Mixing Tanks
+              {Texts.products.mixingTanks.title}
             </h2>
 
-            <p className="pb-4 text-white">
-              Mixing Process with the efficient Temperature control.
-            </p>
-            <ul className="list-disc list-outside list-inside  space-y-2 text-white">
-              <li>Minimum Space requirement</li>
-              <li>Optimized Mixing Vessel Design</li>
-              <li>Range: 5L - 50KL ( Customized to user requirement)</li>
-              <li>Agitator: Top Mounted / Bottom Mounted</li>
-              <li>Design compliance to ASME BPE and GMP 5 Guidelines.</li>
-              <li>PLC control system with HMI and SCADA.</li>
+            <p className="text-lg pb-4">{Texts.products.mixingTanks.body}</p>
+            <ul className="list-disc list-outside list-inside  space-y-2 ">
+              {Texts.products.mixingTanks.points.map((point, index) => (
+                <li className="text-lg mb-4" key={index}>
+                  {point}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
