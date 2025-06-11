@@ -1,13 +1,16 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
-import { SEO } from '../components/SEO';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+
+import { SEO } from '../components/SEO';
+import { Texts } from '../constants/Texts';
 import homepageBanner1 from '../assets/homepage-banner-1.jpg';
 import homepageBanner2 from '../assets/homepage-banner-2.jpg';
 import homepageBanner3 from '../assets/homepage-banner-3.jpg';
@@ -17,7 +20,6 @@ import homepageClients from '../assets/homepage-clients.jpg';
 import homepageServices from '../assets/homepage-services.jpg';
 import homepageContact from '../assets/homepage-contact.jpg';
 import isoCertificate from '../assets/vior-iso-certificate.jpg';
-import { Texts } from '../constants/Texts';
 
 const banners = [
   {

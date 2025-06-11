@@ -1,5 +1,10 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+import { SEO } from '../components/SEO';
+import { Texts } from '../constants/Texts';
 import client1 from '../assets/client1.jpg';
 import client2 from '../assets/client2.jpg';
 import client3 from '../assets/client3.jpg';
@@ -9,10 +14,6 @@ import client6 from '../assets/client6.jpg';
 import client7 from '../assets/client7.jpg';
 import client8 from '../assets/client8.jpg';
 import client9 from '../assets/client9.jpg';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { SEO } from '../components/SEO';
-import { Texts } from '../constants/Texts';
 
 const clientele = [
   { name: 'Client 1', logo: client1 },

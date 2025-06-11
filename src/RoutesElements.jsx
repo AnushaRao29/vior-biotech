@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Home,
   Overview,
@@ -6,7 +7,6 @@ import {
   Leadership,
   BioReactors,
   Fermenters,
-  CIPStations,
   VaporizationVessel,
   ProcessVessel,
   MobileVessel,
@@ -15,6 +15,7 @@ import {
   MediaVessel,
   CIPSIPSkids,
   FiltrationSkids,
+  CIPStations,
   InactivationVessel,
   MixingTanks,
   AutomationSolutions,
@@ -31,7 +32,6 @@ export const RoutesElements = [
   { path: '/about/leadership', element: <Leadership /> },
   { path: '/products/bioreactors', element: <BioReactors /> },
   { path: '/products/fermenters', element: <Fermenters /> },
-  { path: '/products/cip-stations', element: <CIPStations /> },
   { path: '/products/vaporization-vessel', element: <VaporizationVessel /> },
   { path: '/products/process-vessel', element: <ProcessVessel /> },
   { path: '/products/mobile-vessel', element: <MobileVessel /> },
@@ -40,6 +40,7 @@ export const RoutesElements = [
   { path: '/products/media-vessel', element: <MediaVessel /> },
   { path: '/products/cip-sip-skids', element: <CIPSIPSkids /> },
   { path: '/products/filtration-skids', element: <FiltrationSkids /> },
+  { path: '/products/cip-stations', element: <CIPStations /> },
   { path: '/products/inactivation-vessel', element: <InactivationVessel /> },
   { path: '/products/mixing-tanks', element: <MixingTanks /> },
   { path: '/products/automation-solutions', element: <AutomationSolutions /> },

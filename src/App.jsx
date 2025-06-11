@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Layout } from './components/Layout';
-import { Toaster } from 'react-hot-toast';
-import { RoutesElements } from './RoutesElements';
 import { HelmetProvider } from 'react-helmet-async';
+import { Toaster } from 'react-hot-toast';
+
+import { Layout } from './components/Layout';
+import { RoutesElements } from './RoutesElements';
 
 const App = () => (
   <>

@@ -1,4 +1,9 @@
 import React, { useEffect } from 'react';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+import { Texts } from '../constants/Texts';
 import image1 from '../assets/vior-gallery-1.jpg';
 import image2 from '../assets/vior-gallery-2.jpg';
 import image3 from '../assets/vior-gallery-3.jpg';
@@ -11,9 +16,6 @@ import image9 from '../assets/vior-gallery-9.jpg';
 import image10 from '../assets/vior-gallery-10.jpg';
 import image11 from '../assets/vior-gallery-11.jpg';
 import image12 from '../assets/vior-gallery-12.jpg';
-import { Texts } from '../constants/Texts';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const galleryImages = [
   { name: 'Gallery 1', logo: image1 },

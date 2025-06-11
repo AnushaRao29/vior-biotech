@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+
 import PropTypes from 'prop-types';
+
 import { Texts } from '../constants/Texts';
 
 export const SEO = ({

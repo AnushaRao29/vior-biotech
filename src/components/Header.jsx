@@ -1,11 +1,12 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import viorLogo from '../../src/assets/vior-logo.png';
-import { ChevronDown } from 'lucide-react';
-import { NavItems } from '../Data/NavItems';
 import { useLocation } from 'react-router-dom';
+
+import { Menu, X } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
+
+import { NavItems } from '../Data/NavItems';
+import viorLogo from '../../src/assets/vior-logo.png';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);

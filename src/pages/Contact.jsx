@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import toast from 'react-hot-toast';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import bgImage from '../assets/background-contact.jpg';
-import toast from 'react-hot-toast';
+
 import { Texts, Links } from '../constants';
+import bgImage from '../assets/background-contact.jpg';
 
 export const Contact = () => {
   const fileInputRef = useRef(null);

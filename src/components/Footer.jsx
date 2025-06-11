@@ -1,6 +1,8 @@
 import React from 'react';
-import { ChevronUpIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
 import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa';
+
+import { ChevronUpIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
+
 import { Texts, Links } from '../constants';
 
 export const Footer = () => {
