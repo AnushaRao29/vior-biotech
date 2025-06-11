@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import image from '../../assets/background-automation.jpg';
+import image from '../../assets/products-automation.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Texts } from '../../constants/Texts';

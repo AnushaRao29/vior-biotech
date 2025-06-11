@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import image from '../../assets/background-mission.jpg';
+import image from '../../assets/vior-team.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { SEO } from '../../components/SEO';
